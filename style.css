@@ -1,1 +1,26 @@
+/* se dice en cascada porque se lee de arriba para abajo */ 
+
+
 body{background-color: blue;}
+
+
+/* tag { propiedad: valor} */
+
+
+h1{
+    font-size: 50px;
+    color: yellow;
+}
+
+/* Clase de los titulos, cualquier elemento del HTML que tenga clase = titulos va a tener color aquamarine  */
+.titulos{
+
+    color:aquamarine;
+}
+
+#ultima{
+    color:brown;
+}
+
+
+
