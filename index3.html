@@ -1,0 +1,101 @@
+<!DOCTYPE html> <!-- Indicador para el navegador de que se trata de un archivo HTML v.5-->
+<html lang="es-AR"> 
+<head>
+    <meta charset="UTF-8"> <!-- Conjunto de caracteres. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- viewport = pantalla. Como quiero mostrar el contenido es el content. Ocupando todo el ancho y escala en 1.0 -->
+    <title>Mi pagina web</title> <!-- nombre de la pagina web. Aparece en la solapa de Chrome --> 
+</head>
+<body>
+    <h1>
+        HOLA
+    </h1>
+    <h2>
+        HOLA
+    </h2>
+    <!-- y asi hasta h6, viene de header (encabezado) -->
+    <p> 
+        Esto es un parrafo
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint amet non enim aliquid repudiandae tempora ea quis nisi illo consequuntur, beatae tempore accusamus aperiam, vero minima nemo. Quidem, possimus ipsam.
+        <!-- El Lorem sirve para hacer texto de prueba, es un place holder. Pueden ser mas parrafos como Lorem:5 -->
+        <!-- la etiqueta P tiene espacios entre etiquetas, margenes superiores e inferiores -->
+        <!-- La manera de hacer un enter es poner la etiqueta <br> -->
+
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat odit molestiae, enim optio sapiente fugit amet totam illo repudiandae iusto labore voluptatum. Est nobis in quia velit itaque dolore deleniti!
+        <br> 
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora sint pariatur ullam voluptas consequatur! Eligendi dolorum alias odio doloremque similique enim aspernatur laboriosam nisi facilis, consequatur dolorem nostrum vero earum!
+    </p>
+
+    <!-- Rutas absolutas y relativas -->
+    <!-- Ruta de acceso absoluta --> <!-- Solo es valida en mi PC-->
+    <img src="" alt="Aca va una foto"> <!-- El alt es para tener una via alternativa si la foto no se muestra o el usuario es no vidente, tiene vision disminuida, etc-->
+    <!-- Ruta de acceso relativa --> <!-- Esta es la que tengo que usar -->
+    <img src="" alt="Aca va una foto">
+    <img src="" alt="ACA NO VA UNA FOTO"> 
+    <img src="./image/NDLM-3.png" alt="" width="200" height="300">
+    <a href="http://www.google.com">Ir a Google</a>
+    <!-- La foto te manda a la otra pagina. El target en blank hace que se abra en una nueva pestana -->
+    <a href="./contacto.html" target="_blank">Ir a contacto <img src="./image/NDLM-3.png" alt="" width="200" height="300"> </a>
+
+    <!-- tambien puedo poner placeholders de imagenes, para ver colores, como se veria en la pagina, etc -->
+    <img src="http://placehold.co/500x500/000000/555555" alt="">
+
+    <br>
+    <br>
+    <br>
+    <ol type="I" start="5"> <!-- tambien puede ser por I, i, sin nada son numeros-->
+        <!-- li*3 hizo esto-->
+        <li>Hola</li>
+        <li>que</li>
+        <li>tal</li>
+    </ol>
+
+    <ul type="none"> <!-- tambien hay circle, square, etc --> <!-- es una lista sin criterio de ordenacion -->
+
+    </ul>
+
+    <br>
+    <br>
+    <br>
+
+    <menu type="none">
+        <li id="ultima">Nosotros</li>
+        <li>Ellos</li>
+        <li>Yo</li>
+    </menu>
+
+    <!-- Son para marcar secciones-->
+    <div> Seccion de ancho completo </div> otra cosa
+    <br>
+    <span> Seccion de ancho determinado por el contenido </span> otra cosa
+
+    HOLA
+
+
+    <!-- Maneras de conectar el CSS con el HTML -->
+    <!-- esto es Internal, dentro del codigo de HTML-->
+    <style> 
+
+    /* Aca va la info del CSS  */
+    </style>
+
+    <link rel="stylesheet" href = "style.css">
+
+
+    <!-- despues hay maneras de poner en cada etiqueta del HTML el style = (MALA PRACTICA)--> 
+
+    <!-- EXTERNAL: otro archivo con el style.css -->
+    
+</body>     
+</html>
+
+<!-- DE DONDE SACAR INFO -->
+<!-- 
+    W3C Schools. HTML, CSS y JavaScript. Tiene ejercicios, etc. 
+
+    Majo Ledesma. Desarrolladora PedidosYa. HTML Cheat sheet
+-->
+
+
+<!-- Principales etiquetas: html, head y body (sucesivamente)-->
+<!-- head es info para el navegador -->
+<!-- body es info para el usuario -->
