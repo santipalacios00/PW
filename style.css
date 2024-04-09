@@ -42,13 +42,13 @@ html {
 .tab-buttons {
     display: flex;
     align-items: center;
+    background-color: #8dc6ff;
     gap: 10px; /* Espacio entre los botones */
 }
 
 .ALF {
     text-align: center;
     color: #fff;
-    flex-grow: 1; /* Hace que "ALF" ocupe todo el espacio disponible en el centro */
 }
 
 
