@@ -49,6 +49,7 @@ button {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin: 5px;
 }
 
 button:hover {
@@ -59,4 +60,14 @@ button:hover {
     margin-top: 10px;
     font-style: italic;
     color: #888;
+}
+
+.score-container {
+    margin-top: 20px;
+}
+
+#score {
+    font-weight: bold;
+    font-size: 20px;
+    color: #007bff;
 }
