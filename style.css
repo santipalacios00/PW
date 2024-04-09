@@ -1,40 +1,62 @@
-/* se dice en cascada porque se lee de arriba para abajo */ 
-
-
-body{background-color: white;}
-
-
-/* tag { propiedad: valor} */
-
-
-h1{
-    font-size: 50px;
-    color: yellow;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
 }
 
-/* Clase de los titulos, cualquier elemento del HTML que tenga clase = titulos va a tener color aquamarine  */
-.titulos{
-
-    color:aquamarine;
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
 }
 
-#ultima{
-    color:brown;
+.game {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* medidas relativas */
-
-/* 
-em, ex, ch, rem, vw, vh, vmin, vmax, % buscar en internet las fuentes pero son medidas relativas que ayudan al design
-*/
-
-.flex-container{
-    display: flex;
-    flex-direction: row; /* tambien se puede poner row-reverse, column y column-reverse. El reverse basicamente invierte el orden de los elementos dentro del compartimiento */ 
-    flex-wrap: wrap;
+h1 {
+    color: #333;
 }
 
+.phrase-container {
+    margin-bottom: 20px;
+}
 
+.phrase {
+    font-size: 20px;
+    font-weight: bold;
+}
 
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    width: 70%;
+}
 
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
+button:hover {
+    background-color: #0056b3;
+}
+
+#feedback {
+    margin-top: 10px;
+    font-style: italic;
+    color: #888;
+}
