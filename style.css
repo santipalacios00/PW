@@ -38,7 +38,6 @@ html {
     background-color: #8dc6ff;
     padding: 10px;
     display: flex;
-    justify-content: space-between;
 }
 
 .tab-button {
