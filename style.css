@@ -35,6 +35,7 @@ html {
     background-color: #8dc6ff;
     padding: 10px;
     display: flex;
+    justify-content: space-between;
 }
 
 .tab-button {
@@ -42,6 +43,7 @@ html {
     background-color: #8dc6ff;
     cursor: pointer;
     font-size: 16px;
+    gap: 10px;
 }
 
 .tab-button:hover {
@@ -54,6 +56,7 @@ html {
 .ALF {
     text-align: center;
     color: rgb(255, 255, 255);
+
 }
 
 header {
