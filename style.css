@@ -36,27 +36,27 @@ html {
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center; /* Centra verticalmente los elementos en el encabezado */
 }
 
-.tab-button {
-    border: none;
-    background-color: #8dc6ff;
-    cursor: pointer;
-    font-size: 16px;
-    gap: 10px;
+.tab-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre los botones */
 }
+
+.ALF {
+    text-align: center;
+    color: #fff;
+    flex-grow: 1; /* Hace que "ALF" ocupe todo el espacio disponible en el centro */
+}
+
 
 .tab-button:hover {
     border: none;
     background-color: #5daeff;
     cursor: pointer;
     font-size: 16px;
-}
-
-.ALF {
-    text-align: center;
-    color: rgb(255, 255, 255);
-
 }
 
 header {
