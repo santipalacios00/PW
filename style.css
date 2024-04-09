@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     height: 100%;
@@ -5,12 +6,12 @@ body {
     padding: 0;
 }
 
-
 html {
     height: 100%;
     margin: 0;
 }
 
+/* Contenedor principal */
 .container {
     display: flex;
     flex-direction: column;
@@ -19,6 +20,7 @@ html {
     height: 100%;
 }
 
+/* Estilos del juego */
 .game {
     text-align: center;
     background-color: #fff;
@@ -27,6 +29,7 @@ html {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Encabezado de pestañas */
 .tab-header {
     position: fixed;
     top: 0;
@@ -38,13 +41,16 @@ html {
     align-items: center; /* Centra verticalmente los elementos en el encabezado */
 }
 
-.tab-buttons {
-    display: flex;
-    align-items: center;
+/* Botones de pestañas */
+.tab-button {
+    border: none;
     background-color: #8dc6ff;
+    cursor: pointer;
+    font-size: 16px;
     gap: 10px; /* Espacio entre los botones */
 }
 
+/* Estilos de los botones de pestañas al pasar el cursor por encima */
 .tab-button:hover {
     border: none;
     background-color: #5daeff;
@@ -52,6 +58,7 @@ html {
     font-size: 16px;
 }
 
+/* Estilos del encabezado */
 header {
     background-color: rgba(255, 255, 255, 1);
     padding: 10px 0;
@@ -62,16 +69,18 @@ header {
     z-index: 1000;
 }
 
-
+/* Contenedor de la frase */
 .phrase-container {
     margin-bottom: 20px;
 }
 
+/* Estilos de la frase */
 .phrase {
     font-size: 20px;
     font-weight: bold;
 }
 
+/* Estilos del campo de entrada de texto */
 input[type="text"] {
     padding: 10px;
     font-size: 16px;
@@ -81,6 +90,7 @@ input[type="text"] {
     width: 70%;
 }
 
+/* Estilos de los botones */
 button {
     padding: 10px 20px;
     font-size: 16px;
@@ -93,22 +103,35 @@ button {
     margin: 5px;
 }
 
+/* Estilos de los botones al pasar el cursor por encima */
 button:hover {
     background-color: #0056b3;
 }
 
+/* Estilos del feedback */
 #feedback {
     margin-top: 10px;
     font-style: italic;
     color: #888;
 }
 
+/* Estilos del contenedor de la puntuación */
 .score-container {
     margin-top: 20px;
 }
 
+/* Estilos de la puntuación */
 #score {
     font-weight: bold;
     font-size: 20px;
     color: #007bff;
+}
+
+.ALF { 
+    z-index: 2500;
+    margin-top: 10px;
+    font-size: 20px;
+    right: 50%;
+    color: #ffffff;
+    text-align: center;
 }

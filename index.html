@@ -6,37 +6,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adivina la frase!</title>
-    <link rel="stylesheet" href = "style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <!-- Encabezado de pestañas -->
     <header class="tab-header">
+        <!-- Botón de inicio -->
         <button class="tab-button" id="inicio-button">Inicio</button>
+        <!-- Botón de ranking -->
         <button class="tab-button" id="ranking-button">Ranking</button>
+        <!-- Botón de frase (signo de interrogación) -->
         <button class="tab-button" id="frase-button">?</button>
     </header>
 
+    <h1 class = "ALF"> ALF <br> (Adivina la frase) </h1>
 
+    <!-- Contenedor principal -->
     <div class="container">
+        <!-- Título principal del juego -->
         <h1>Adivina la frase famosa argentina</h1>
+        <!-- Contenedor del juego -->
         <div class="game">
+            <!-- Contenedor de la frase a adivinar -->
             <div class="phrase-container">
+                <!-- Párrafo que muestra la frase -->
                 <p class="phrase"></p>
             </div>
+            <!-- Entrada de texto para ingresar la respuesta -->
             <input type="text" id="guessInput" placeholder="Ingresa tu respuesta">
+            <!-- Botón para adivinar -->
             <button id="submitGuess">Adivinar</button>
+            <!-- Párrafo para mostrar el feedback -->
             <p id="feedback"></p>
+            <!-- Contenedor de la puntuación -->
             <div class="score-container">
+                <!-- Párrafo que muestra la puntuación -->
                 <p>Puntos: <span id="score">0</span></p>
             </div>
+            <!-- Botón para comenzar el juego -->
             <button id="startGame">Comenzar Juego</button>
+            <!-- Botón para reiniciar el juego -->
             <button id="resetGame">Reiniciar Juego</button>
         </div>
     </div>
 
+    <!-- Script de JavaScript -->
     <script src="script.js"></script>
 </body>
-
 
 </html>
