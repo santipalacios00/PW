@@ -35,23 +35,18 @@ html {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #f8f9fa;
+    background-color: #8dc6ff;
     padding: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .tab-button {
     border: none;
-    background: none;
+    background-color: #ffffff;
     cursor: pointer;
     font-size: 16px;
 }
-
-.tab-button:hover {
-    text-decoration: underline;
-}
-
 
 header {
     background-color: rgba(255, 255, 255, 1);
