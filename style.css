@@ -45,14 +45,6 @@ html {
     gap: 10px; /* Espacio entre los botones */
 }
 
-.ALF {
-    text-align: center;
-    position: fixed;
-    top: 0;
-    color: #fff;
-}
-
-
 .tab-button:hover {
     border: none;
     background-color: #5daeff;
