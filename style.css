@@ -173,7 +173,7 @@ button:hover {
     background: #f5d24a;
     align-items: center; /* Centrar verticalmente los elementos */
     justify-items: center; /* Centrar horizontalmente los elementos */
-    gap: 10px; /* Espacio entre las filas */
+    gap: 5px; /* Espacio entre las filas */
 }
 
 /* Contenedor de la imagen */
@@ -201,6 +201,7 @@ button:hover {
 
 /* Contenedor de la lista */
 .menu-container {
+    margin-top: 5px;
     grid-row: 3; /* Alinear en la tercera fila */
     max-width: 100%; /* Ancho máximo del contenedor */
 }
