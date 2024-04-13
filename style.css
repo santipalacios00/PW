@@ -1,6 +1,6 @@
 /* Estilos generales */
 body, html {
-    height: 100%;
+    height: 100vh;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -9,7 +9,8 @@ body, html {
 /* Encabezado */
 .header {
     background: #f5d24a;
-    padding: 1rem; /* Ajustar el espaciado alrededor del encabezado */
+    padding: 0px 15px; /* Ajustar el espaciado alrededor del encabezado */
+    height: fit-content;
     display: flex; /* Convertir el encabezado en un contenedor flex */
     justify-content: space-between; /* Distribuir los elementos horizontalmente */
     align-items: center; /* Centrar verticalmente los elementos */
@@ -20,7 +21,7 @@ body, html {
     flex: 0 0 15%; /* Establecer el contenedor como no flexible y con un ancho máximo del 15% */
     display: flex;
     align-items: center; /* Centrar verticalmente los elementos */
-    padding-right: 1rem; /* Espacio a la derecha del logo */
+    padding-right: 0px; /* Espacio a la derecha del logo */
 }
 
 /* Logo */
@@ -33,15 +34,16 @@ body, html {
 .ALF {
     font-family: "cooper", sans-serif, serif;
     color: #e53c40;
-    font-size: 2rem; /* Ajustar el tamaño del título */
+    font-size: 35px;
     margin-left: 0; /* Eliminar los márgenes predeterminados */
-    white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+    text-wrap: nowrap;
 }
 
 /* Contenedor de la lista */
 .menu-container {
     flex: 1; /* Hacer que el contenedor de la lista ocupe todo el espacio disponible */
-    padding-left: 1rem; /* Espacio a la izquierda del menú */
+    max-width: 50%;
+    padding-left: 15px; /* Espacio a la izquierda del menú */
 }
 
 /* Estilos de la lista */
@@ -49,7 +51,8 @@ body, html {
     justify-content: space-between;
     font-family: "cooper", sans-serif, serif;
     display: flex; /* Convertir la lista en un contenedor flex */
-    padding: 0px 1rem; /* Ajustar el espacio dentro del menú */
+    padding: 0px 50px 0px 10px;
+
 }
 
 .menu ul li {
@@ -59,7 +62,7 @@ body, html {
 /* Estilos de los enlaces del encabezado*/
 .menu a {
     color: #e53c40;
-    font-size: 1.6rem; /* Ajustar el tamaño de los enlaces */
+    font-size: 20px;
     text-decoration: none;
     text-shadow: -1px -1px 0 #FFF, 0 -1px 0 #FFF, 1px -1px 0 #FFF, 1px 0 0 #FFF, 1px 1px 0 #FFF, 0 1px 0 #FFF, -1px 1px 0 #FFF, -1px 0 0 #FFF;
 }
@@ -71,9 +74,11 @@ body, html {
 
 /* Frase */
 .phrase-container {
-    padding: 2rem 1rem; /* Espacio alrededor de la frase */
+    padding: 30px 10px 30px 10px;
     display: flex;
     flex-direction: column;
+    height: fit-content;
+    width: 50%;
     justify-content: center;
     align-items: center;
 }
@@ -84,7 +89,7 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Hacer que el contenedor ocupe al menos el 100% del alto de la pantalla */
+    height: fit-content;
 }
 
 /* Juego */
@@ -92,37 +97,37 @@ body, html {
     text-align: center;
     background-color: #f5d24a;
     border-radius: 8px;
-    padding: 1rem; /* Ajustar el espaciado dentro del juego */
+    padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .phrase {
-    font-size: 1.6rem; /* Ajustar el tamaño de la frase */
+    font-size: 20px;
     font-weight: bold;
 }
 
 /* Campo de entrada de texto */
 input[type="text"] {
-    padding: 0.8rem;
-    font-size: 1.6rem; /* Ajustar el tamaño del texto de entrada */
+    padding: 10px;
+    font-size: 16px;
     border-radius: 4px;
     border: 1px solid #ccc;
-    margin-bottom: 1rem; /* Espacio debajo del campo de entrada */
+    margin-bottom: 10px;
     width: 70%;
 }
 
 /* Botones */
 button {
     font-family: "cooper", sans-serif, serif;
-    padding: 0.8rem 1.6rem; /* Ajustar el espaciado dentro del botón */
-    font-size: 1.6rem; /* Ajustar el tamaño del texto del botón */
+    padding: 10px 20px;
+    font-size: 16px;
     background-color: #ff2929;
     color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin: 0.5rem;
+    margin: 5px;
 }
 
 button:hover {
@@ -132,21 +137,21 @@ button:hover {
 
 /* Feedback */
 #feedback {
-    margin-top: 1rem; /* Espacio arriba del feedback */
+    margin-top: 10px;
     font-style: italic;
     color: #888;
 }
 
 /* Puntuación */
 .score-container {
-    font-size: 1.6rem; /* Ajustar el tamaño del texto de la puntuación */
+    font-size: 20px;
     color: #ff0000;
     font-family: "cooper", sans-serif, serif;
-    margin-top: 1.6rem; /* Espacio arriba de la puntuación */
+    margin-top: 20px;
 }
 
 #score {
     font-weight: bold;
-    font-size: 1.6rem; /* Ajustar el tamaño de la puntuación */
+    font-size: 20px;
     color: #000000;
 }
