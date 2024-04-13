@@ -179,7 +179,7 @@ button:hover {
 
 /* Contenedor de la imagen */
 .logo-container {
-    flex: 0 0 auto; /* Establecer el contenedor como no flexible */
+    flex: 0 0 5%; /* Establecer el contenedor como no flexible */
     margin-right: 10px; /* Agregar margen a la derecha */
 }
 
