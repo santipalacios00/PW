@@ -188,6 +188,7 @@ button:hover {
 
 /* Logo */
 .header img {
+    right: 50;
     max-width: 30%; /* Ajustar la anchura de la imagen al máximo del contenedor */
     height: auto; /* Mantener la proporción de la imagen */
 }
