@@ -217,13 +217,13 @@ button:hover {
 .menu ul li {
     font-weight: bold;
     list-style-type: none; /* Eliminar los puntos de lista */
-    margin: 0 10px; /* Agregar margen entre los elementos */
+    margin: 0 15px; /* Agregar margen entre los elementos */
 }
 
 /* Estilos de los enlaces del encabezado */
 .menu a {
     color: #e53c40;
-    font-size: 12px; /* Reducir el tamaño de fuente para dispositivos móviles */
+    font-size: 18px; /* Reducir el tamaño de fuente para dispositivos móviles */
     text-decoration: none;
 }
 
