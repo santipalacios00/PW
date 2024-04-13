@@ -168,9 +168,11 @@ button:hover {
 
   /* Encabezado */
 .header {
-    display: flex; /* Convertir el encabezado en un contenedor flex */
+    display: grid; 
+    grid-auto-columns: 1fr; 
+    grid-template-rows: max-content max-content max-content; 
+    gap: 0px 0px; 
     background: #f5d24a;
-    flex-direction: row;
     height: auto; /* Cambiar la altura a automático para adaptarse al contenido */
     flex-wrap: nowrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
     align-items: center; /* Centrar verticalmente los elementos */
