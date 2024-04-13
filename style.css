@@ -178,7 +178,7 @@ button:hover {
 
 /* Contenedor de la imagen */
 .logo-container {
-    flex: 1; /* Establecer el contenedor como no flexible */
+    max-width: 100%; /* Reducir el tamaño de fuente para dispositivos móviles */
     justify-content: center; /* Agregar margen a la derecha */
 }
 
@@ -193,13 +193,13 @@ button:hover {
     font-family: "cooper", sans-serif, serif;
     color: #e53c40;
     font-size: 26px;
-    max-width: 100%; /* Reducir el tamaño de fuente para dispositivos móviles */
+    max-width: 100%; 
     margin: 0; /* Eliminar los márgenes */
 }
 
 /* Contenedor de la lista */
 .menu-container {
-    flex: 1; /* Hacer que el contenedor de la lista ocupe todo el espacio disponible */
+    max-width: 100%; 
 }
 
 /* Estilos de la lista */
