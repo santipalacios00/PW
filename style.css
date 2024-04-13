@@ -186,6 +186,7 @@ button:hover {
 .header img {
     max-width: 30%; /* Ajustar la anchura de la imagen al máximo del contenedor */
     height: auto; /* Mantener la proporción de la imagen */
+    justify-items: center;
 }
 
 /* Título "ALF" */
