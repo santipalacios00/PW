@@ -180,7 +180,7 @@ button:hover {
 /* Contenedor de la imagen */
 .logo-container {
     grid-row: 1; /* Alinear en la primera fila */
-    max-width: 100%; /* Ancho máximo del contenedor */
+    max-width: 40%; /* Ancho máximo del contenedor */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -189,7 +189,7 @@ button:hover {
 
 /* Logo */
 .header img {
-    max-width: 30%; /* Ajustar la anchura de la imagen al máximo del contenedor */
+    max-width: 100%; /* Ajustar la anchura de la imagen al máximo del contenedor */
     height: auto; /* Mantener la proporción de la imagen */
 }
 
