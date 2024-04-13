@@ -18,18 +18,32 @@ body, html {
 
 /* Contenedor de la imagen */
 .logo-container {
-    width: 15%; /* Establecer el contenedor como no flexible y ajustar el tamaño automáticamente */
-    }
-
-/* Contenedor de la lista */
-.menu-container {
-    width: 50%; /* Hacer que el contenedor de la lista ocupe todo el espacio disponible */
+    flex: 0 0 15%; /* Establecer el contenedor como no flexible y con un ancho máximo del 15% */
+    display: flex;
+    align-items: center; /* Centrar verticalmente los elementos */
+    padding-right: 0px; /* Espacio a la derecha del logo */
 }
 
 /* Logo */
 .header img {
-    width: 100%; /* Ajustar la anchura de la imagen al máximo del contenedor */
+    max-width: 100%; /* Ajustar la anchura de la imagen al máximo del contenedor */
     height: auto; /* Mantener la proporción de la imagen */
+}
+
+/* Título "ALF" */
+.ALF {
+    font-family: "cooper", sans-serif, serif;
+    color: #e53c40;
+    font-size: 35px;
+    margin-left: 0; /* Eliminar los márgenes predeterminados */
+    text-wrap: nowrap;
+}
+
+/* Contenedor de la lista */
+.menu-container {
+    flex: 1; /* Hacer que el contenedor de la lista ocupe todo el espacio disponible */
+    max-width: 50%;
+    padding-left: 15px; /* Espacio a la izquierda del menú */
 }
 
 /* Estilos de la lista */
@@ -66,13 +80,6 @@ body, html {
     align-items: center;
     margin-top: 5%;
     height: fit-content;
-}
-
-.ALF {
-    font-family: "cooper", sans-serif, serif;
-    font-size: 30px;
-    color: #e53c40;
-
 }
 
 /* Frase */
