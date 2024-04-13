@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 
 <html lang="es-AR">
-  
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adivina la frase!</title>
+    <title>ALF (Adivina la frase)</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,44 +13,41 @@
 
     <!-- Encabezado de pestañas -->
     <header class="header">
-        <!-- Logo -->
-        <figure>
-            <a href=""><img src="https://alfofficial.com/images/ALF-Logo.png" width="15%"></a></figure>
-        </figure>
-
-    <div class="menu">
-        <ul>
-            <!-- Botón de inicio -->
-            <li class="page_item page-item-18"><a href="">Inicio</a></li>
-            <!-- Botón de ranking -->
-            <li class="page_item page-item-11"><a href="">Ranking</a></li>
-            <!-- Botón de frase (signo de interrogación) -->
-            <li class="page_item page-item-14"><a href="">?</a></li>
-        </ul>
-    </div>
-     
+        <!-- Contenedor de la imagen -->
+        <div class="logo-container">
+            <!-- Logo -->
+            <figure>
+                <a href=""><img src="https://alfofficial.com/images/ALF-Logo.png"></a>
+            </figure>
+        </div>
+        <!-- Contenedor de la lista -->
+        <div class="menu-container">
+            <div class="menu">
+                <ul>
+                    <!-- Botón de inicio -->
+                    <li class="page_item page-item-18"><a href="">Inicio</a></li>
+                    <!-- Botón de ranking -->
+                    <li class="page_item page-item-11"><a href="">Ranking</a></li>
+                    <!-- Botón de frase (signo de interrogación) -->
+                    <li class="page_item page-item-14"><a href="">Configuracion</a></li>
+                    <!-- Botón de frase (signo de interrogación) -->
+                    <li class="page_item page-item-14"><a href="">?</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
-
-    
-    
-    <!-- Audio -->
-    <audio controls autoplay loop>
-        <source src="C:\Users\santi\Desktop\PW\audio\alf.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-
 
     <!-- Contenedor principal -->
     <div class="container">
         <!-- Título principal del juego -->
-        <h1 class = "ALF">ALF <br> (Adivina la frase) </h1>
+        <h1 class = "ALF"> Adivina la frase </h1>
+        <!-- Contenedor de la frase a adivinar -->
+        <div class="phrase-container">
+            <!-- Párrafo que muestra la frase -->
+            <p class="phrase"></p>
+        </div>
         <!-- Contenedor del juego -->
         <div class="game">
-            <!-- Contenedor de la frase a adivinar -->
-            <div class="phrase-container">
-                <!-- Párrafo que muestra la frase -->
-                <p class="phrase"></p>
-            </div>
             <!-- Entrada de texto para ingresar la respuesta -->
             <input type="text" id="guessInput" placeholder="Ingresa tu respuesta">
             <!-- Botón para adivinar -->
