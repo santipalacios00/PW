@@ -175,6 +175,7 @@ button:hover {
     background: #f5d24a;
     height: auto; /* Cambiar la altura a automático para adaptarse al contenido */
     align-items: center; /* Centrar verticalmente los elementos */
+    justify-items: center;
 }
 
 /* Contenedor de la imagen */
@@ -185,8 +186,8 @@ button:hover {
 
 /* Logo */
 .header img {
-    max-height: 10%; /* Ajustar la anchura de la imagen al máximo del contenedor */
-    width: auto; /* Mantener la proporción de la imagen */
+    max-width: 30%; /* Ajustar la anchura de la imagen al máximo del contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
 }
 
 /* Título "ALF" */
@@ -213,6 +214,7 @@ button:hover {
 }
 
 .menu ul li {
+    font: bold;
     list-style-type: none; /* Eliminar los puntos de lista */
 }
 
