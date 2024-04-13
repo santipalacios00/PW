@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="es-AR">
+  
 
 <head>
     <meta charset="UTF-8">
@@ -12,21 +13,38 @@
 <body>
 
     <!-- Encabezado de pestañas -->
-    <header class="tab-header">
-        <!-- Botón de inicio -->
-        <button class="tab-button" id="inicio-button">Inicio</button>
-        <!-- Botón de ranking -->
-        <button class="tab-button" id="ranking-button">Ranking</button>
-        <!-- Botón de frase (signo de interrogación) -->
-        <button class="tab-button" id="frase-button">?</button>
+    <header class="header">
+        <!-- Logo -->
+        <figure>
+            <a href=""><img src="https://alfofficial.com/images/ALF-Logo.png" width="15%"></a></figure>
+        </figure>
+
+    <div class="menu">
+        <ul>
+            <!-- Botón de inicio -->
+            <li class="page_item page-item-18"><a href="">Inicio</a></li>
+            <!-- Botón de ranking -->
+            <li class="page_item page-item-11"><a href="">Ranking</a></li>
+            <!-- Botón de frase (signo de interrogación) -->
+            <li class="page_item page-item-14"><a href="">?</a></li>
+        </ul>
+    </div>
+     
     </header>
 
-    <h1 class = "ALF"> ALF <br> (Adivina la frase) </h1>
+    
+    
+    <!-- Audio -->
+    <audio controls autoplay loop>
+        <source src="C:\Users\santi\Desktop\PW\audio\alf.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
 
     <!-- Contenedor principal -->
     <div class="container">
         <!-- Título principal del juego -->
-        <h1>Adivina la frase famosa argentina</h1>
+        <h1 class = "ALF">ALF <br> (Adivina la frase) </h1>
         <!-- Contenedor del juego -->
         <div class="game">
             <!-- Contenedor de la frase a adivinar -->

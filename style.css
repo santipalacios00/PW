@@ -1,14 +1,31 @@
 /* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
+body, html {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-html {
-    height: 100%;
+/* Encabezado */
+.header {
+    background: #f5d24a;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.header figure {
     margin: 0;
+}
+
+.header img {
+    width: 15%;
+}
+
+.menu-links a {
+    color: #e53c40;
+    font-size: 20px;
+    text-decoration: none;
+    text-shadow: -1px -1px 0 #FFF, 0 -1px 0 #FFF, 1px -1px 0 #FFF, 1px 0 0 #FFF, 1px 1px 0 #FFF, 0 1px 0 #FFF, -1px 1px 0 #FFF, -1px 0 0 #FFF;
 }
 
 /* Contenedor principal */
@@ -20,67 +37,33 @@ html {
     height: 100%;
 }
 
-/* Estilos del juego */
+/* Juego */
 .game {
     text-align: center;
     background-color: #fff;
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Encabezado de pestañas */
-.tab-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #8dc6ff;
-    padding: 10px;
-    display: flex;
-    align-items: center; /* Centra verticalmente los elementos en el encabezado */
+/* Título */
+.ALF { 
+    font-size: 40px;
+    color: #ffcb05;
+    text-align: center;
 }
 
-/* Botones de pestañas */
-.tab-button {
-    border: none;
-    background-color: #8dc6ff;
-    cursor: pointer;
-    font-size: 16px;
-    gap: 10px; /* Espacio entre los botones */
-}
-
-/* Estilos de los botones de pestañas al pasar el cursor por encima */
-.tab-button:hover {
-    border: none;
-    background-color: #5daeff;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-/* Estilos del encabezado */
-header {
-    background-color: rgba(255, 255, 255, 1);
-    padding: 10px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-/* Contenedor de la frase */
+/* Frase */
 .phrase-container {
     margin-bottom: 20px;
 }
 
-/* Estilos de la frase */
 .phrase {
     font-size: 20px;
     font-weight: bold;
 }
 
-/* Estilos del campo de entrada de texto */
+/* Campo de entrada de texto */
 input[type="text"] {
     padding: 10px;
     font-size: 16px;
@@ -90,12 +73,12 @@ input[type="text"] {
     width: 70%;
 }
 
-/* Estilos de los botones */
+/* Botones */
 button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #69512e;
+    color: #ff2929;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -103,35 +86,24 @@ button {
     margin: 5px;
 }
 
-/* Estilos de los botones al pasar el cursor por encima */
 button:hover {
     background-color: #0056b3;
 }
 
-/* Estilos del feedback */
+/* Feedback */
 #feedback {
     margin-top: 10px;
     font-style: italic;
     color: #888;
 }
 
-/* Estilos del contenedor de la puntuación */
+/* Puntuación */
 .score-container {
     margin-top: 20px;
 }
 
-/* Estilos de la puntuación */
 #score {
     font-weight: bold;
     font-size: 20px;
     color: #007bff;
-}
-
-.ALF { 
-    z-index: 2500;
-    margin-top: 10px;
-    font-size: 20px;
-    right: 50%;
-    color: #ffffff;
-    text-align: center;
 }
