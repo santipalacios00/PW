@@ -166,61 +166,58 @@ button:hover {
 /* Estilos específicos para dispositivos móviles */
 @media only screen and (max-width: 767px) {
 
-  /* Encabezado */
+ /* Encabezado */
 .header {
-    display: grid; 
-    grid-auto-columns: 1fr; 
-    grid-template-rows: max-content max-content max-content; 
-    gap: 0px 0px; 
+    display: grid;
+    grid-template-rows: auto auto auto; /* Tres filas con altura automática */
     background: #f5d24a;
-    height: auto; /* Cambiar la altura a automático para adaptarse al contenido */
     align-items: center; /* Centrar verticalmente los elementos */
-    justify-items: center;
+    justify-items: center; /* Centrar horizontalmente los elementos */
+    gap: 10px; /* Espacio entre las filas */
 }
 
 /* Contenedor de la imagen */
 .logo-container {
-    max-width: 100%; /* Reducir el tamaño de fuente para dispositivos móviles */
-    justify-content: center; /* Agregar margen a la derecha */
+    grid-row: 1; /* Alinear en la primera fila */
+    max-width: 100%; /* Ancho máximo del contenedor */
 }
 
 /* Logo */
 .header img {
-    max-width: 30%; /* Ajustar la anchura de la imagen al máximo del contenedor */
+    max-width: 40%; /* Ajustar la anchura de la imagen al máximo del contenedor */
     height: auto; /* Mantener la proporción de la imagen */
-    justify-content: center;
 }
 
 /* Título "ALF" */
 .ALF {
+    grid-row: 2;
     font-family: "cooper", sans-serif, serif;
     color: #e53c40;
     font-size: 26px;
-    max-width: 100%; 
-    justify-content: center;
     margin: 0; /* Eliminar los márgenes */
 }
 
 /* Contenedor de la lista */
 .menu-container {
-    max-width: 100%; 
+    grid-row: 3; /* Alinear en la tercera fila */
+    max-width: 100%; /* Ancho máximo del contenedor */
 }
 
 /* Estilos de la lista */
 .menu ul {
     font-family: "cooper", sans-serif, serif;
     display: flex; /* Convertir la lista en un contenedor flex */
-    padding: 5px 5px 5px 5px; /* Eliminar el relleno */
+    padding: 0; /* Eliminar el relleno */
     margin: 0; /* Eliminar los márgenes */
-    justify-content: space-around; /* Alinear los elementos al final del contenedor */
+    justify-content: space-around; /* Alinear los elementos equidistantemente */
 }
 
 .menu ul li {
-    font: bold;
+    font-weight: bold;
     list-style-type: none; /* Eliminar los puntos de lista */
 }
 
-/* Estilos de los enlaces del encabezado*/
+/* Estilos de los enlaces del encabezado */
 .menu a {
     color: #e53c40;
     font-size: 12px; /* Reducir el tamaño de fuente para dispositivos móviles */
@@ -230,6 +227,7 @@ button:hover {
 .menu a:hover {
     color: #ffffff;
 }
+
 
 
 
