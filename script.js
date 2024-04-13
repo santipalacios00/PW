@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function() {
         "https://www.youtube.com/watch?v=2JlnDtLw_AE&ab_channel=HacKan",
         "https://www.youtube.com/watch?v=2hBSMInlDGg&ab_channel=JanSchmelter",
         "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley",
-        // Agrega más URLs de videos o fotos según sea necesario
     ];
 
     // Obtener todos los elementos <a> dentro de <li> con la clase "random-header"
