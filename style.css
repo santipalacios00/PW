@@ -72,28 +72,30 @@ body, html {
     text-shadow: -1px -1px 0 #000000, 0 -1px 0 #000000, 1px -1px 0 #000000, 1px 0 0 #000000, 1px 1px 0 #000000, 0 1px 0 #000000, -1px 1px 0 #000000, -1px 0 0 #000000;
 }
 
+/* Frase */
+.phrase-container {
+    padding: 30px 10px 30px 10px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Contenedor principal */
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 5%;
     height: fit-content;
-}
-
-/* Frase */
-.phrase-container {
-    margin-bottom: 20px;
-    height: fit-content;
-    width: 50%;
-    justify-content: center;
 }
 
 /* Juego */
 .game {
     text-align: center;
-    background-color: #fff;
+    background-color: #f5d24a;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -116,10 +118,11 @@ input[type="text"] {
 
 /* Botones */
 button {
+    font-family: "cooper", sans-serif, serif;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #69512e;
-    color: #ff2929;
+    background-color: #ff2929;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -128,7 +131,8 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #ff0000;
+    color: #f5d24a;
 }
 
 /* Feedback */
@@ -140,11 +144,14 @@ button:hover {
 
 /* Puntuación */
 .score-container {
+    font-size: 20px;
+    color: #ff0000;
+    font-family: "cooper", sans-serif, serif;
     margin-top: 20px;
 }
 
 #score {
     font-weight: bold;
     font-size: 20px;
-    color: #007bff;
+    color: #000000;
 }
