@@ -6,7 +6,10 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
-/* Encabezado */
+/* Estilos generales para dispositivos de escritorio */
+@media only screen and (min-width: 768px) {
+
+    /* Encabezado */
 .header {
     background: #f5d24a;
     padding: 0px 15px; /* Ajustar el espaciado alrededor del encabezado */
@@ -155,3 +158,19 @@ button:hover {
     font-size: 20px;
     color: #000000;
 }
+    
+
+}
+
+
+
+
+
+
+
+/* Estilos específicos para dispositivos móviles */
+@media only screen and (max-width: 767px) {
+
+}
+
+
