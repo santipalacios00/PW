@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Obtener todos los elementos <a> dentro de <li> con la clase "random-header"
     var randomLinks = document.querySelectorAll(".random-header a");
 
-    // Asignar una URL aleatoria a cada enlace
+    // Asignar una URL aleatoria a cada enlace y abrir en una nueva pestaña
     randomLinks.forEach(function(link) {
         // Generar un índice aleatorio para seleccionar una URL del array
         var randomIndex = Math.floor(Math.random() * alfVideos.length);
@@ -18,7 +18,10 @@ document.addEventListener("DOMContentLoaded", function() {
         var randomUrl = alfVideos[randomIndex] + "?cachebuster=" + Date.now();
         // Asignar la URL aleatoria al atributo "href" del enlace
         link.href = randomUrl;
+        // Agregar el atributo target para abrir en una nueva pestaña
+        link.target = "_blank";
     });
 });
+
 
 
