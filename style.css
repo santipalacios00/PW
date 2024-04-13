@@ -168,24 +168,23 @@ button:hover {
 
   /* Encabezado */
 .header {
-    background: #f5d24a;
-    padding: 10px; /* Ajustar el espaciado alrededor del encabezado */
-    height: auto; /* Cambiar la altura a automático para adaptarse al contenido */
     display: flex; /* Convertir el encabezado en un contenedor flex */
-    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
-    justify-content: space-between; /* Distribuir los elementos horizontalmente */
+    background: #f5d24a;
+    flex-direction: row;
+    height: auto; /* Cambiar la altura a automático para adaptarse al contenido */
+    flex-wrap: nowrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
     align-items: center; /* Centrar verticalmente los elementos */
 }
 
 /* Contenedor de la imagen */
 .logo-container {
-    flex: 0 0 30%; /* Establecer el contenedor como no flexible */
-    margin-right: 10px; /* Agregar margen a la derecha */
+    flex: 1; /* Establecer el contenedor como no flexible */
+    justify-content: center; /* Agregar margen a la derecha */
 }
 
 /* Logo */
 .header img {
-    max-width: 100%; /* Ajustar la anchura de la imagen al máximo del contenedor */
+    max-width: 30%; /* Ajustar la anchura de la imagen al máximo del contenedor */
     height: auto; /* Mantener la proporción de la imagen */
 }
 
@@ -193,6 +192,7 @@ button:hover {
 .ALF {
     font-family: "cooper", sans-serif, serif;
     color: #e53c40;
+    font-size: 26px;
     max-width: 100%; /* Reducir el tamaño de fuente para dispositivos móviles */
     margin: 0; /* Eliminar los márgenes */
 }
@@ -200,21 +200,19 @@ button:hover {
 /* Contenedor de la lista */
 .menu-container {
     flex: 1; /* Hacer que el contenedor de la lista ocupe todo el espacio disponible */
-    margin-left: 10px; /* Agregar margen a la izquierda */
 }
 
 /* Estilos de la lista */
 .menu ul {
     font-family: "cooper", sans-serif, serif;
     display: flex; /* Convertir la lista en un contenedor flex */
-    padding: 0; /* Eliminar el relleno */
+    padding: 5px 5px 5px 5px; /* Eliminar el relleno */
     margin: 0; /* Eliminar los márgenes */
-    justify-content: flex-end; /* Alinear los elementos al final del contenedor */
+    justify-content: space-between; /* Alinear los elementos al final del contenedor */
 }
 
 .menu ul li {
     list-style-type: none; /* Eliminar los puntos de lista */
-    margin-left: 10px; /* Agregar espacio entre los elementos */
 }
 
 /* Estilos de los enlaces del encabezado*/
