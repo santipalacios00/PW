@@ -166,7 +166,7 @@ button:hover {
 /* Estilos específicos para dispositivos móviles */
 @media only screen and (max-width: 767px) {
 
- /* Encabezado */
+/* Encabezado */
 .header {
     display: grid;
     grid-template-rows: auto auto auto; /* Tres filas con altura automática */
@@ -184,17 +184,17 @@ button:hover {
 
 /* Logo */
 .header img {
-    max-width: 40%; /* Ajustar la anchura de la imagen al máximo del contenedor */
+    max-width: 30%; /* Ajustar la anchura de la imagen al máximo del contenedor */
     height: auto; /* Mantener la proporción de la imagen */
 }
 
 /* Título "ALF" */
 .ALF {
-    grid-row: 2;
     font-family: "cooper", sans-serif, serif;
     color: #e53c40;
     font-size: 26px;
     margin: 0; /* Eliminar los márgenes */
+    grid-row: 2; /* Alinear en la segunda fila */
 }
 
 /* Contenedor de la lista */
@@ -209,12 +209,13 @@ button:hover {
     display: flex; /* Convertir la lista en un contenedor flex */
     padding: 0; /* Eliminar el relleno */
     margin: 0; /* Eliminar los márgenes */
-    justify-content: space-around; /* Alinear los elementos equidistantemente */
+    justify-content: space-between; /* Alinear los elementos en el centro */
 }
 
 .menu ul li {
     font-weight: bold;
     list-style-type: none; /* Eliminar los puntos de lista */
+    margin: 0 10px; /* Agregar margen entre los elementos */
 }
 
 /* Estilos de los enlaces del encabezado */
