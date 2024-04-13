@@ -174,7 +174,6 @@ button:hover {
     gap: 0px 0px; 
     background: #f5d24a;
     height: auto; /* Cambiar la altura a automático para adaptarse al contenido */
-    flex-wrap: nowrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
     align-items: center; /* Centrar verticalmente los elementos */
 }
 
@@ -186,8 +185,8 @@ button:hover {
 
 /* Logo */
 .header img {
-    max-width: 30%; /* Ajustar la anchura de la imagen al máximo del contenedor */
-    height: auto; /* Mantener la proporción de la imagen */
+    max-height: 10%; /* Ajustar la anchura de la imagen al máximo del contenedor */
+    width: auto; /* Mantener la proporción de la imagen */
 }
 
 /* Título "ALF" */
