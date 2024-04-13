@@ -198,7 +198,8 @@ button:hover {
     font-family: "cooper", sans-serif, serif;
     color: #e53c40;
     font-size: 26px;
-    margin: 0; /* Eliminar los márgenes */
+    margin-top: 0; /* Eliminar los márgenes */
+    margin-bottom: 5px;
     grid-row: 2; /* Alinear en la segunda fila */
 }
 
