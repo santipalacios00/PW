@@ -13,7 +13,7 @@ body, html {
 .header {
     background: #f5d24a;
     padding: 0px 15px; /* Ajustar el espaciado alrededor del encabezado */
-    height: fit-content;
+    height: 15vh;
     display: flex; /* Convertir el encabezado en un contenedor flex */
     justify-content: space-between; /* Distribuir los elementos horizontalmente */
     align-items: center; /* Centrar verticalmente los elementos */
@@ -77,7 +77,7 @@ body, html {
 
 /* Frase */
 .phrase-container {
-    padding: 30px 10px 30px 10px;
+    padding: 0px 10px 20px 10px;
     display: flex;
     flex-direction: column;
     height: fit-content;
@@ -92,7 +92,7 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: fit-content;
+    height: 70vh;
 }
 
 /* Juego */
@@ -158,6 +158,32 @@ button:hover {
     font-size: 20px;
     color: #000000;
 }
+
+/* Footer */
+
+.footer {
+    position: fixed; /* Fijar el footer en una posición */
+    bottom: 0; /* Pegar el footer en la parte inferior de la ventana del navegador */
+    background: #f5d24a;
+    width: 100%;
+    height: fit-content;
+    display: flex; /* Convertir el footer en un contenedor flex */
+    justify-content: space-between; /* Distribuir los elementos horizontalmente */
+    align-items: center; /* Centrar verticalmente los elementos */
+    padding: 20px 15px; /* Ajustar el espaciado alrededor del footer */
+}
+
+.footer .info-container {
+    flex: 1; /* Hacer que el contenedor de información ocupe todo el espacio disponible */
+    margin-left: 20px; /* Espacio a la izquierda del contenido */
+}
+
+.footer .info-container p {
+    margin: 0; /* Eliminar los márgenes predeterminados del párrafo */
+    font-size: 16px; /* Tamaño de fuente para el contenido */
+    color: #333; /* Color de texto para el contenido */
+}
+
     
 
 }
@@ -172,6 +198,7 @@ button:hover {
     grid-template-rows: auto auto auto; /* Tres filas con altura automática */
     background: #f5d24a;
     width: 100%;
+    height: fit-content;
     align-items: center; /* Centrar verticalmente los elementos */
     justify-items: center; /* Centrar horizontalmente los elementos */
     gap: 5px; /* Espacio entre las filas */
@@ -320,6 +347,32 @@ button:hover {
     font-size: 20px;
     color: #000000;
 }
+
+/* Footer */
+
+.footer {
+    position: fixed; /* Fijar el footer en una posición */
+    bottom: 0; /* Pegar el footer en la parte inferior de la ventana del navegador */
+    background: #f5d24a;
+    width: 100%;
+    height: fit-content;
+    display: flex; /* Convertir el footer en un contenedor flex */
+    justify-content: space-between; /* Distribuir los elementos horizontalmente */
+    align-items: center; /* Centrar verticalmente los elementos */
+    padding: 20px 15px; /* Ajustar el espaciado alrededor del footer */
+}
+
+.footer .info-container {
+    flex: 1; /* Hacer que el contenedor de información ocupe todo el espacio disponible */
+    margin-left: 20px; /* Espacio a la izquierda del contenido */
+}
+
+.footer .info-container p {
+    margin: 0; /* Eliminar los márgenes predeterminados del párrafo */
+    font-size: 16px; /* Tamaño de fuente para el contenido */
+    color: #333; /* Color de texto para el contenido */
+}
+
 
 
 
