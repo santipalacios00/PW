@@ -22,5 +22,25 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+// Obtener el elemento de audio
+var audio = document.getElementById("miAudio");
+
+// Ocultar los controles de reproducción
+audio.controls = false;
+
+// Reproducir el audio
+audio.play();
+
+// Detener la reproducción si el usuario intenta pausarlo
+audio.addEventListener("pause", function(event) {
+  event.preventDefault();
+  audio.play();
+});
+
+// Detener la reproducción si el usuario intenta detenerlo
+audio.addEventListener("ended", function(event) {
+  event.preventDefault();
+  audio.play();
+});
 
 
