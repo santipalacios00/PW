@@ -69,19 +69,23 @@ document.addEventListener("DOMContentLoaded", function() {
     var closeBtn = modal.querySelector(".close");
 
     // Cuando se hace clic en el botón, mostrar el modal
-    btn.addEventListener("click", function() {
+    btn.addEventListener("click", function(event) {
         modal.style.display = "block";
+        event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
     });
 
     // Cuando se hace clic en el botón de cierre, ocultar el modal
-    closeBtn.addEventListener("click", function() {
+    closeBtn.addEventListener("click", function(event) {
         modal.style.display = "none";
+        event.stopPropagation(); // Evitar la propagación del evento al contenedor principal del modal
     });
 
-    // Cuando se hace clic fuera del modal, ocultarlo
+    // Cuando se hace clic fuera del contenido del modal, cerrarlo
     window.addEventListener("click", function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
     });
 });
+
+
