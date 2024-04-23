@@ -204,10 +204,6 @@ button:hover {
     right: 0; /* Alinea la imagen a la izquierda */
 }
 
-
-
-
-
     
 
 }
@@ -384,7 +380,7 @@ button:hover {
     display: flex; /* Convertir el footer en un contenedor flex */
     justify-content: space-between; /* Distribuir los elementos horizontalmente */
     align-items: center; /* Centrar verticalmente los elementos */
-    padding: 20px 15px; /* Ajustar el espaciado alrededor del footer */
+    padding: 10px 10px; /* Ajustar el espaciado alrededor del footer */
 }
 
 .footer .info-container {
@@ -394,7 +390,7 @@ button:hover {
 
 .footer .info-container p {
     margin: 0; /* Eliminar los márgenes predeterminados del párrafo */
-    font-size: 16px; /* Tamaño de fuente para el contenido */
+    font-size: 12px; /* Tamaño de fuente para el contenido */
     color: #333; /* Color de texto para el contenido */
 }
 
