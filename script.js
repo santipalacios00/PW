@@ -2,25 +2,35 @@ const audio = document.getElementById('miAudio');
 const toggleButton = document.getElementById('toggleAudio');
 const cross = document.querySelector('.cross');
 
-// Evento para cambiar la visibilidad de la cruz cuando se toca el botón
+// Función para cambiar dinámicamente la imagen del botón
+function toggleButtonImage() {
+    const bocinaImage = toggleButton.querySelector('.bocina-image');
+    if (audio.paused) {
+        bocinaImage.src = 'https://static.thenounproject.com/png/2090371-200.png'; // Cambia a la imagen de bocina muteada
+    } else {
+        bocinaImage.src = 'https://cdn0.iconfinder.com/data/icons/website-fat-outlines-part-1-black/96/web-02-512.png'; // Cambia a la imagen de bocina activa
+    }
+}
+
+// Evento para cambiar la imagen del botón cuando se toca el botón
 toggleButton.addEventListener('click', () => {
     if (audio.paused) {
         audio.play();
-        cross.style.display = 'block'; // Muestra la cruz cuando el audio está activo
     } else {
         audio.pause();
-        cross.style.display = 'none'; // Oculta la cruz cuando el audio está muteado
     }
+    toggleButtonImage();
 });
 
-// Evento para cambiar la visibilidad de la cruz cuando se pausa o reproduce el audio
+// Evento para cambiar la imagen del botón cuando se pausa o reproduce el audio
 audio.addEventListener('play', () => {
-    cross.style.display = 'block'; // Muestra la cruz cuando el audio está activo
+    toggleButtonImage();
 });
 
 audio.addEventListener('pause', () => {
-    cross.style.display = 'none'; // Oculta la cruz cuando el audio está muteado
+    toggleButtonImage();
 });
+
 
 
 
