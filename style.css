@@ -187,8 +187,8 @@ button:hover {
 }
 
 .audio-button {
-    width: 50px; /* Ancho del botón */
-    height: 50px; /* Altura del botón */
+    width: 30px; /* Ancho del botón */
+    height: 30px; /* Altura del botón */
     border: none; /* Elimina el borde del botón */
     cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
     background-color: transparent; /* Fondo transparente */
@@ -198,7 +198,7 @@ button:hover {
 .bocina-image {
     width: 100%; /* Ancho de la imagen */
     height: 100%; /* Altura de la imagen */
-    object-fit: cover; /* Ajusta la imagen al tamaño del contenedor cubriendo todo el espacio */
+    object-fit: contain; /* Ajusta la imagen al tamaño del contenedor cubriendo todo el espacio */
     position: absolute; /* Establece la posición absoluta para la imagen */
     top: 0; /* Alinea la imagen arriba */
     right: 0; /* Alinea la imagen a la izquierda */
@@ -287,24 +287,25 @@ button:hover {
     color: #ffffff;
 }
 
-/* Frase */
-.phrase-container {
-    padding: 20px 5px 20px 5px;
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
-    width: 80%;
-    justify-content: center;
-    align-items: center;
-}
-
 /* Contenedor principal */
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 40vh;
+    width: 100%;
+    height: fit-content;
+}
+
+/* Frase */
+.phrase-container {
+    padding: 5px 5px 5px 5px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Juego */
@@ -399,8 +400,8 @@ button:hover {
 
 
 .audio-button {
-    width: 40px; /* Ancho del botón */
-    height: 40px; /* Altura del botón */
+    width: 20px; /* Ancho del botón */
+    height: 30px; /* Altura del botón */
     border: none; /* Elimina el borde del botón */
     cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
     background-color: transparent; /* Fondo transparente */
@@ -410,7 +411,7 @@ button:hover {
 .bocina-image {
     width: 100%; /* Ancho de la imagen */
     height: 100%; /* Altura de la imagen */
-    object-fit: cover; /* Ajusta la imagen al tamaño del contenedor cubriendo todo el espacio */
+    object-fit: contain; /* Ajusta la imagen al tamaño del contenedor cubriendo todo el espacio */
     position: absolute; /* Establece la posición absoluta para la imagen */
     top: 0; /* Alinea la imagen arriba */
     right: 0; /* Alinea la imagen a la izquierda */
