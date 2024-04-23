@@ -184,6 +184,16 @@ button:hover {
     color: #333; /* Color de texto para el contenido */
 }
 
+.audio-button {
+    width: 50px; /* Ancho de la imagen */
+    height: 50px; /* Altura de la imagen */
+    background-image: url('https://cdn-icons-png.flaticon.com/512/6333/6333753.png'); /* Ruta de tu imagen de bocina */
+    background-size: cover; /* Ajusta la imagen al tamaño del botón */
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+}
+
+
     
 
 }
@@ -374,6 +384,14 @@ button:hover {
 }
 
 
+.audio-button {
+    width: 50px; /* Ancho de la imagen */
+    height: 50px; /* Altura de la imagen */
+    background-image: url('ruta/a/tu/imagen/bocina.png'); /* Ruta de tu imagen de bocina */
+    background-size: cover; /* Ajusta la imagen al tamaño del botón */
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+}
 
 
 
