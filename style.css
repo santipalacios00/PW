@@ -185,13 +185,29 @@ button:hover {
 }
 
 .audio-button {
-    width: 50px; /* Ancho de la imagen */
-    height: 50px; /* Altura de la imagen */
-    background-image: url('https://cdn-icons-png.flaticon.com/512/6333/6333753.png'); /* Ruta de tu imagen de bocina */
-    background-size: cover; /* Ajusta la imagen al tamaño del botón */
+    position: relative; /* Establece la posición relativa para los elementos secundarios */
+    width: 50px; /* Ancho del botón */
+    height: 50px; /* Altura del botón */
     border: none; /* Elimina el borde del botón */
     cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+    background-color: transparent; /* Fondo transparente */
 }
+
+.bocina-image {
+    width: 100%; /* Ancho de la imagen */
+    height: 100%; /* Altura de la imagen */
+    object-fit: contain; /* Ajusta la imagen al tamaño del contenedor sin deformarla */
+}
+
+.cross {
+    position: absolute; /* Establece la posición absoluta para la cruz */
+    top: 0; /* Coloca la cruz en la esquina superior izquierda del botón */
+    right: 0; /* Coloca la cruz en la esquina superior derecha del botón */
+    font-size: 20px; /* Tamaño de la cruz */
+    color: red; /* Color de la cruz */
+    padding: 5px; /* Añade espacio alrededor de la cruz */
+}
+
 
 
     

@@ -1,24 +1,27 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Obtener el elemento de audio
-    var audio = document.getElementById("miAudio");
-    
-    // Obtener el botón de alternancia de audio
-    var toggleButton = document.getElementById("toggleAudio");
-    
-    // Manejar el clic en el botón de alternancia de audio
-    toggleButton.addEventListener("click", function() {
-        // Verificar si el audio está silenciado
-        if (audio.muted) {
-            // Activar el audio
-            audio.muted = false;
-            toggleButton.textContent = "Mutear Audio";
-        } else {
-            // Silenciar el audio
-            audio.muted = true;
-            toggleButton.textContent = "Activar Audio";
-        }
-    });
+const audio = document.getElementById('miAudio');
+const toggleButton = document.getElementById('toggleAudio');
+const cross = document.querySelector('.cross');
+
+// Evento para cambiar la visibilidad de la cruz cuando se toca el botón
+toggleButton.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        cross.style.display = 'block'; // Muestra la cruz cuando el audio está activo
+    } else {
+        audio.pause();
+        cross.style.display = 'none'; // Oculta la cruz cuando el audio está muteado
+    }
 });
+
+// Evento para cambiar la visibilidad de la cruz cuando se pausa o reproduce el audio
+audio.addEventListener('play', () => {
+    cross.style.display = 'block'; // Muestra la cruz cuando el audio está activo
+});
+
+audio.addEventListener('pause', () => {
+    cross.style.display = 'none'; // Oculta la cruz cuando el audio está muteado
+});
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
