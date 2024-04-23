@@ -31,9 +31,7 @@ audio.addEventListener('pause', () => {
     toggleButtonImage();
 });
 
-
-
-
+// Boton random
 document.addEventListener("DOMContentLoaded", function() {
     // Array de URLs de videos o fotos aleatorias de Alf
     var alfVideos = [
@@ -55,5 +53,35 @@ document.addEventListener("DOMContentLoaded", function() {
         link.href = randomUrl;
         // Agregar el atributo target para abrir en una nueva pestaña
         link.target = "_blank";
+    });
+});
+
+//Boton ranking
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtener el modal
+    var modal = document.getElementById("ranking-modal");
+
+    // Obtener el botón que abre el modal
+    var btn = document.querySelector(".ranking-header a");
+
+    // Obtener el botón de cierre del modal
+    var closeBtn = modal.querySelector(".close");
+
+    // Cuando se hace clic en el botón, mostrar el modal
+    btn.addEventListener("click", function() {
+        modal.style.display = "block";
+    });
+
+    // Cuando se hace clic en el botón de cierre, ocultar el modal
+    closeBtn.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+
+    // Cuando se hace clic fuera del modal, ocultarlo
+    window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     });
 });
