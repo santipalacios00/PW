@@ -1,6 +1,10 @@
+
+
+
+
+
 const audio = document.getElementById('miAudio');
 const toggleButton = document.getElementById('toggleAudio');
-
 
 // Manejo del AUDIO 
 
