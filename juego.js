@@ -337,7 +337,6 @@ let frase44 = {
     link: "https://media.a24.com/p/8f540ce8a64086c4ad6ca018327a9ed1/adjuntos/296/imagenes/008/840/0008840695/1200x675/smart/turco-garcia.jpeg"
 };
 
-agregarFrase(frase1);
 agregarFrase(frase2);
 agregarFrase(frase3);
 agregarFrase(frase4);
