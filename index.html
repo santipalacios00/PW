@@ -116,6 +116,37 @@
             
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
+                
+        // Obtener una referencia a la colección "Frases"
+        const db = firebase.firestore();
+        const frasesCollection = db.collection("Frases");
+
+
+        //JUEGO 
+
+        // Función para obtener una frase aleatoria de la base de datos
+        function obtenerFraseAleatoria() {
+            // Obtener una referencia a un documento aleatorio en la colección "Frases"
+            frasesCollection.get().then((querySnapshot) => {
+            // Obtener un índice aleatorio dentro del rango de la cantidad de documentos en la colección
+            const randomIndex = Math.floor(Math.random() * querySnapshot.size);
+
+            // Obtener el documento en la posición aleatoria
+            const randomDoc = querySnapshot.docs[randomIndex];
+
+            // Obtener los datos del documento
+            const fraseData = randomDoc.data();
+
+            // Actualizar el contenido del elemento "phrase" en el HTML con la frase obtenida
+            const phraseElement = document.querySelector(".phrase");
+            phraseElement.textContent = fraseData.frase;
+            }).catch((error) => {
+            console.error("Error al obtener la frase:", error);
+            });
+        }
+
+        // Llamar a la función obtenerFraseAleatoria al iniciar el juego
+        window.addEventListener("DOMContentLoaded", obtenerFraseAleatoria);
     </script>
 
 </body>
