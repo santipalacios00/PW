@@ -1,5 +1,6 @@
+// Importar las funciones necesarias de Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getFirestore, collection, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+import { getFirestore, collection, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBFKo65veH6H_NfZEPEaVRqPv-DtBwGWxM",
@@ -19,25 +20,27 @@ const firestore = getFirestore(app);
 // Obtener una referencia a la colección "Frases"
 const frasesCollection = collection(firestore, "Frases");
 
-// Función para obtener la frase del documento con ID "1" de la colección "Frases"
-function obtenerFrase() {
-    // Obtener el documento con ID "1" de la colección "Frases"
-    const docRef = doc(frasesCollection, "1");
-    getDoc(docRef).then((doc) => {
-        if (doc.exists()) {
-            // Obtener los datos del documento
-            const fraseData = doc.data();
+// Función para agregar una nueva frase a la colección "Frases"
+function agregarNuevaFrase(nuevaFrase) {
+    // Generar un ID único para la nueva frase
+    const id = generateId(); // Aquí debes implementar una función para generar IDs únicos
 
-            // Actualizar el contenido del elemento "phrase" en el HTML con la frase obtenida
-            const phraseElement = document.querySelector(".phrase");
-            phraseElement.textContent = fraseData.frase;
-        } else {
-            console.log("No se encontró el documento con ID '1'");
-        }
-    }).catch((error) => {
-        console.error("Error al obtener la frase:", error);
+    // Agregar la nueva frase a la colección "Frases" con el ID generado
+    setDoc(doc(frasesCollection, id), nuevaFrase)
+    .then(() => {
+        console.log("Nueva frase agregada correctamente");
+    })
+    .catch((error) => {
+        console.error("Error al agregar la nueva frase:", error);
     });
 }
 
-// Llamar a la función obtenerFrase al iniciar el juego
-window.addEventListener("DOMContentLoaded", obtenerFrase);
+// Ejemplo de uso de la función para agregar una nueva frase
+const nuevaFrase = {
+    frase: "Para ser buena política no me tengo que disfrazar de pobre",
+    autor: ["Cristina", "CFK", "Cristina Fernandez de Kirchner", "Cris", "La Jefa"],
+    dificultad: 3,
+    link: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Cristina_Fern%C3%A1ndez_de_Kirchner_-_Foto_Oficial_2.jpg/866px-Cristina_Fern%C3%A1ndez_de_Kirchner_-_Foto_Oficial_2.jpg"
+};
+
+agregarNuevaFrase(nuevaFrase);
