@@ -21,7 +21,7 @@ const firestore = getFirestore(app);
 const frasesCollection = collection(firestore, "Frases");
 
 // Función para agregar una nueva frase a la colección "Frases"
-function agregarNuevaFrase(nuevaFrase) {
+function agregarFrase(nuevaFrase) {
     // Agregar un nuevo documento a la colección "Frases"
     addDoc(frasesCollection, nuevaFrase)
     .then(() => {
