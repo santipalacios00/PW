@@ -1,14 +1,22 @@
 const audio = document.getElementById('miAudio');
 const toggleButton = document.getElementById('toggleAudio');
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtener el elemento de audio
+    const audio = document.getElementById('miAudio');
+
+    // Reproducir el audio automáticamente
+    audio.play();
+});
+
 
 // Función para cambiar dinámicamente la imagen del botón
 function toggleButtonImage() {
     const bocinaImage = toggleButton.querySelector('.bocina-image');
     if (audio.paused) {
-        bocinaImage.src = 'https://static.thenounproject.com/png/2090371-200.png'; // Cambia a la imagen de bocina muteada
+        bocinaImage.src = 'https://static.thenounproject.com/png/2090371-200.png'; // Cambia a la imagen de bocina activa
     } else {
-        bocinaImage.src = 'https://cdn0.iconfinder.com/data/icons/website-fat-outlines-part-1-black/96/web-02-512.png'; // Cambia a la imagen de bocina activa
+        bocinaImage.src = 'https://cdn0.iconfinder.com/data/icons/website-fat-outlines-part-1-black/96/web-02-512.png'; // Cambia a la imagen de bocina muteada
     }
 }
 
