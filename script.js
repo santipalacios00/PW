@@ -1,6 +1,9 @@
 const audio = document.getElementById('miAudio');
 const toggleButton = document.getElementById('toggleAudio');
 
+
+// Manejo del AUDIO 
+
 document.addEventListener("DOMContentLoaded", function() {
     // Obtener el elemento de audio
     const audio = document.getElementById('miAudio');
@@ -29,6 +32,9 @@ toggleButton.addEventListener('click', () => {
     }
     toggleButtonImage();
 });
+
+
+// Botones del encabezado
 
 // Boton random
 document.addEventListener("DOMContentLoaded", function() {

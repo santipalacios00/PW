@@ -43,7 +43,7 @@
     </header>
 
     <!-- Audio de ALF y boton -->
-    <audio id="miAudio" loop autoplay>
+    <audio id="miAudio" loop auto>
         <source src="audio/alf.mp3" type="audio/mp3">
         Tu navegador no soporta el elemento de audio.
     </audio>
@@ -102,7 +102,27 @@
     </footer>
 
     <!-- Script de JavaScript -->
-    <script src="script.js"></script>
+    <script src="script.js">
+        // Importar Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js";
+
+        // Config de Firebase 
+        const firebaseConfig = {
+            apiKey: "AIzaSyBFKo65veH6H_NfZEPEaVRqPv-DtBwGWxM",
+            authDomain: "alfgame-e438f.firebaseapp.com",
+            projectId: "alfgame-e438f",
+            storageBucket: "alfgame-e438f.appspot.com",
+            messagingSenderId: "493104096636",
+            appId: "1:493104096636:web:1361d0bdda78a2ff5af0f9",
+            measurementId: "G-EHQ8FJ9J2F"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+    </script>
 
 </body>
 
