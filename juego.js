@@ -1,6 +1,6 @@
 // Importar las funciones necesarias de Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getFirestore, collection, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+import { getFirestore, collection, doc, setDoc, getDoc, addDoc} from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBFKo65veH6H_NfZEPEaVRqPv-DtBwGWxM",
@@ -22,11 +22,8 @@ const frasesCollection = collection(firestore, "Frases");
 
 // Función para agregar una nueva frase a la colección "Frases"
 function agregarNuevaFrase(nuevaFrase) {
-    // Generar un ID único para la nueva frase
-    const id = generateId(); // Aquí debes implementar una función para generar IDs únicos
-
-    // Agregar la nueva frase a la colección "Frases" con el ID generado
-    setDoc(doc(frasesCollection, id), nuevaFrase)
+    // Agregar un nuevo documento a la colección "Frases"
+    addDoc(frasesCollection, nuevaFrase)
     .then(() => {
         console.log("Nueva frase agregada correctamente");
     })
