@@ -103,52 +103,7 @@
 
     <!-- Script de JavaScript -->
     <script src="script.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js" type="module">
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyBFKo65veH6H_NfZEPEaVRqPv-DtBwGWxM",
-            authDomain: "alfgame-e438f.firebaseapp.com",
-            projectId: "alfgame-e438f",
-            storageBucket: "alfgame-e438f.appspot.com",
-            messagingSenderId: "493104096636",
-            appId: "1:493104096636:web:1361d0bdda78a2ff5af0f9",
-            measurementId: "G-EHQ8FJ9J2F"
-        };
-            
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
-        // Obtener una referencia a la colección "Frases"
-        const db = firebase.firestore();
-        const frasesCollection = db.collection("Frases");
-
-        
-        //JUEGO 
-
-        // Función para obtener una frase aleatoria de la base de datos
-        function obtenerFraseAleatoria() {
-            // Obtener una referencia a un documento aleatorio en la colección "Frases"
-            frasesCollection.get().then((querySnapshot) => {
-            // Obtener un índice aleatorio dentro del rango de la cantidad de documentos en la colección
-            const randomIndex = Math.floor(Math.random() * querySnapshot.size);
-
-            // Obtener el documento en la posición aleatoria
-            const randomDoc = querySnapshot.docs[randomIndex];
-
-            // Obtener los datos del documento
-            const fraseData = randomDoc.data();
-
-            // Actualizar el contenido del elemento "phrase" en el HTML con la frase obtenida
-            const phraseElement = document.querySelector(".phrase");
-            phraseElement.textContent = fraseData.frase;
-            }).catch((error) => {
-            console.error("Error al obtener la frase:", error);
-            });
-        }
-
-        // Llamar a la función obtenerFraseAleatoria al iniciar el juego
-        window.addEventListener("DOMContentLoaded", obtenerFraseAleatoria);
-    </script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js" type="module"></script>
 
 </body>
 
