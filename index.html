@@ -117,36 +117,27 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
                 
-        // Obtener una referencia a la colección "Frases"
-        const db = firebase.firestore();
-        const frasesCollection = db.collection("Frases");
+        // Función para obtener la frase del documento con ID "1" de la colección "Frases"
+        function obtenerFrase() {
+            // Obtener el documento con ID "1" de la colección "Frases"
+            frasesCollection.doc("1").get().then((doc) => {
+                if (doc.exists) {
+                    // Obtener los datos del documento
+                    const fraseData = doc.data();
 
-
-        //JUEGO 
-
-        // Función para obtener una frase aleatoria de la base de datos
-        function obtenerFraseAleatoria() {
-            // Obtener una referencia a un documento aleatorio en la colección "Frases"
-            frasesCollection.get().then((querySnapshot) => {
-            // Obtener un índice aleatorio dentro del rango de la cantidad de documentos en la colección
-            const randomIndex = Math.floor(Math.random() * querySnapshot.size);
-
-            // Obtener el documento en la posición aleatoria
-            const randomDoc = querySnapshot.docs[randomIndex];
-
-            // Obtener los datos del documento
-            const fraseData = randomDoc.data();
-
-            // Actualizar el contenido del elemento "phrase" en el HTML con la frase obtenida
-            const phraseElement = document.querySelector(".phrase");
-            phraseElement.textContent = fraseData.frase;
+                    // Actualizar el contenido del elemento "phrase" en el HTML con la frase obtenida
+                    const phraseElement = document.querySelector(".phrase");
+                    phraseElement.textContent = fraseData.frase;
+                } else {
+                    console.log("No se encontró el documento con ID '1'");
+                }
             }).catch((error) => {
-            console.error("Error al obtener la frase:", error);
+                console.error("Error al obtener la frase:", error);
             });
         }
 
-        // Llamar a la función obtenerFraseAleatoria al iniciar el juego
-        window.addEventListener("DOMContentLoaded", obtenerFraseAleatoria);
+        // Llamar a la función obtenerFrase al iniciar el juego
+        window.addEventListener("DOMContentLoaded", obtenerFrase);
     </script>
 
 </body>
