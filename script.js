@@ -1,6 +1,29 @@
 const audio = document.getElementById('miAudio');
 const toggleButton = document.getElementById('toggleAudio');
-const cross = document.querySelector('.cross');
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Comprobar si es la primera visita del usuario
+    var primeraVisita = localStorage.getItem("primeraVisita");
+
+    // Si es la primera visita, mostrar el mensaje de solicitud de permiso
+    if (!primeraVisita) {
+        var permitirAudio = confirm("¿Desea permitir la reproducción de audio en esta página?");
+
+        // Almacenar la respuesta del usuario para futuras visitas
+        localStorage.setItem("permisoAudio", permitirAudio);
+        localStorage.setItem("primeraVisita", true);
+    }
+
+    // Obtener el permiso almacenado del usuario
+    var permisoAudio = localStorage.getItem("permisoAudio");
+
+    // Si el usuario permitió el audio, activar el elemento de audio
+    if (permisoAudio === "true") {
+        var audio = document.getElementById("miAudio");
+        audio.play();
+    }
+});
+
 
 // Función para cambiar dinámicamente la imagen del botón
 function toggleButtonImage() {
@@ -14,12 +37,12 @@ function toggleButtonImage() {
 
 // Evento para cambiar la imagen del botón cuando se toca el botón
 toggleButton.addEventListener('click', () => {
-    toggleButtonImage();
     if (audio.paused) {
         audio.play();
     } else {
         audio.pause();
     }
+    toggleButtonImage();
 });
 
 // Boton random
