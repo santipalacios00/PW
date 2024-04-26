@@ -1,15 +1,14 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, doc, getDoc } from 'firebase/firestore';
 
-// Config de Firebase 
 const firebaseConfig = {
-    apiKey: "TU_API_KEY",
-    authDomain: "TU_AUTH_DOMAIN",
-    projectId: "TU_PROJECT_ID",
-    storageBucket: "TU_STORAGE_BUCKET",
-    messagingSenderId: "TU_MESSAGING_SENDER_ID",
-    appId: "TU_APP_ID",
-    measurementId: "TU_MEASUREMENT_ID"
+    apiKey: "AIzaSyBFKo65veH6H_NfZEPEaVRqPv-DtBwGWxM",
+    authDomain: "alfgame-e438f.firebaseapp.com",
+    projectId: "alfgame-e438f",
+    storageBucket: "alfgame-e438f.appspot.com",
+    messagingSenderId: "493104096636",
+    appId: "1:493104096636:web:1361d0bdda78a2ff5af0f9",
+    measurementId: "G-EHQ8FJ9J2F"
 };
 
 // Inicializar Firebase
