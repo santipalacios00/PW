@@ -1,5 +1,5 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, doc, getDoc } from 'firebase/firestore';
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+import { getFirestore, collection, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBFKo65veH6H_NfZEPEaVRqPv-DtBwGWxM",
@@ -10,7 +10,6 @@ const firebaseConfig = {
     appId: "1:493104096636:web:1361d0bdda78a2ff5af0f9",
     measurementId: "G-EHQ8FJ9J2F"
 };
-
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 
