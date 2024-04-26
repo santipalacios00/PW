@@ -1,27 +1,32 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, doc, getDoc } from 'firebase/firestore';
 
+// Config de Firebase 
 const firebaseConfig = {
-    apiKey: "AIzaSyBFKo65veH6H_NfZEPEaVRqPv-DtBwGWxM",
-    authDomain: "alfgame-e438f.firebaseapp.com",
-    projectId: "alfgame-e438f",
-    storageBucket: "alfgame-e438f.appspot.com",
-    messagingSenderId: "493104096636",
-    appId: "1:493104096636:web:1361d0bdda78a2ff5af0f9",
-    measurementId: "G-EHQ8FJ9J2F"
+    apiKey: "TU_API_KEY",
+    authDomain: "TU_AUTH_DOMAIN",
+    projectId: "TU_PROJECT_ID",
+    storageBucket: "TU_STORAGE_BUCKET",
+    messagingSenderId: "TU_MESSAGING_SENDER_ID",
+    appId: "TU_APP_ID",
+    measurementId: "TU_MEASUREMENT_ID"
 };
 
+// Inicializar Firebase
 const app = initializeApp(firebaseConfig);
-const firestore = getFirestore(app); // Obtén la instancia de Firestore
 
+// Obtén la instancia de Firestore
+const firestore = getFirestore(app);
 
 // Obtener una referencia a la colección "Frases"
 const frasesCollection = collection(firestore, "Frases");
+
 // Función para obtener la frase del documento con ID "1" de la colección "Frases"
 function obtenerFrase() {
     // Obtener el documento con ID "1" de la colección "Frases"
-    frasesCollection.doc("1").get().then((doc) => {
-        if (doc.exists) {
+    const docRef = doc(frasesCollection, "1");
+    getDoc(docRef).then((doc) => {
+        if (doc.exists()) {
             // Obtener los datos del documento
             const fraseData = doc.data();
 
