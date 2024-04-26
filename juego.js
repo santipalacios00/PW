@@ -16,8 +16,7 @@ const firestore = getFirestore(app); // Obtén la instancia de Firestore
 
 
 // Obtener una referencia a la colección "Frases"
-const db = firebase.firestore();
-const frasesCollection = db.collection("Frases");
+const frasesCollection = firestore.collection("Frases");
 // Función para obtener la frase del documento con ID "1" de la colección "Frases"
 function obtenerFrase() {
     // Obtener el documento con ID "1" de la colección "Frases"
