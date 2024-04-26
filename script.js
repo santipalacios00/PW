@@ -14,12 +14,12 @@ function toggleButtonImage() {
 
 // Evento para cambiar la imagen del botón cuando se toca el botón
 toggleButton.addEventListener('click', () => {
+    //toggleButtonImage();
     if (audio.paused) {
         audio.play();
     } else {
         audio.pause();
     }
-    toggleButtonImage();
 });
 
 // Evento para cambiar la imagen del botón cuando se pausa o reproduce el audio
