@@ -22,48 +22,51 @@ const frasesCollection = collection(firestore, "Frases");
 
 
 // Función para mostrar una frase aleatoria al usuario
-function mostrarFrase() {
-    if (frasesCollection.length === 0) {
-        console.error("La colección de frases está vacía");
-        return;
+async function mostrarFrase() {
+    try {
+        const querySnapshot = await getDocs(frasesCollection);
+        if (querySnapshot.empty) {
+            console.error("La colección de frases está vacía");
+            return null;
+        }
+
+        // Obtener una frase aleatoria de la colección
+        const randomIndex = Math.floor(Math.random() * querySnapshot.size);
+        const randomDoc = querySnapshot.docs[randomIndex];
+        const fraseData = randomDoc.data();
+        const frase = fraseData.frase;
+        const autor = fraseData.autor;
+
+        // Mostrar la frase en la interfaz
+        const phraseElement = document.querySelector(".phrase");
+        phraseElement.textContent = frase;
+
+        // Retornar el autor para verificar la respuesta del usuario
+        return autor;
+    } catch (error) {
+        console.error("Error al obtener la frase:", error);
+        return null;
     }
-
-    // Obtener una frase aleatoria de la colección
-    const randomIndex = Math.floor(Math.random() * frasesCollection.length);
-    const frase = frasesCollection[randomIndex].frase;
-    const autor = frasesCollection[randomIndex].autor;
-
-    // Mostrar la frase en la interfaz
-    const phraseElement = document.querySelector(".phrase");
-    phraseElement.textContent = frase;
-
-    // Retornar el autor para verificar la respuesta del usuario
-    return autor;
-}
-
-// Función para comparar la respuesta del usuario con el autor de la frase
-function compararRespuesta(respuesta, autor) {
-    return autor.includes(respuesta);
 }
 
 // Función para iniciar el juego
-function iniciarJuego() {
+async function iniciarJuego() {
     // Reiniciar puntaje
     let score = 0;
     document.getElementById("score").textContent = score;
     
     // Mostrar la primera frase
-    const autor = mostrarFrase();
+    let autor = await mostrarFrase();
 
     // Manejar evento de clic en el botón "Adivinar"
-    document.getElementById("submitGuess").addEventListener("click", () => {
+    document.getElementById("submitGuess").addEventListener("click", async () => {
         const respuestaUsuario = document.getElementById("guessInput").value;
         if (compararRespuesta(respuestaUsuario, autor)) {
             // Respuesta correcta, incrementar puntaje y mostrar siguiente frase
             score++;
             document.getElementById("score").textContent = score;
             document.getElementById("feedback").textContent = "¡Respuesta correcta!";
-            autor = mostrarFrase(); // Mostrar siguiente frase
+            autor = await mostrarFrase(); // Mostrar siguiente frase
         } else {
             // Respuesta incorrecta, terminar el juego
             document.getElementById("feedback").textContent = "¡Respuesta incorrecta! Juego terminado. Puntos: " + score;
