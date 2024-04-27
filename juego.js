@@ -65,7 +65,7 @@ async function iniciarJuego() {
     document.getElementById("score").textContent = score;
 
     // Eliminar event listener anterior si existe
-    const submitGuessButton = document.getElementById("submitGuess");
+    let submitGuessButton = document.getElementById("submitGuess");
     submitGuessButton.removeEventListener("click", clicAdivinar);
 
     // Mostrar la primera frase
