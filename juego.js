@@ -75,7 +75,7 @@ async function iniciarJuego() {
     submitGuessButton.addEventListener("click", clicAdivinar);
 
     async function clicAdivinar() {
-        const respuestaUsuario = document.getElementById("guessInput").value;
+        let respuestaUsuario = document.getElementById("guessInput").value;
         if (compararRespuesta(respuestaUsuario, autor)) {
             // Respuesta correcta, incrementar puntaje y mostrar siguiente frase
             score++;
