@@ -49,6 +49,11 @@ async function mostrarFrase() {
     }
 }
 
+// Función para comparar la respuesta del usuario con el autor de la frase
+function compararRespuesta(respuesta, autor) {
+    return autor.includes(respuesta);
+}
+
 // Función para iniciar el juego
 async function iniciarJuego() {
     // Reiniciar puntaje
