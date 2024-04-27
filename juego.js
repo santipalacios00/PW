@@ -48,11 +48,16 @@ async function mostrarFrase() {
         return null;
     }
 }
-
 // Función para comparar la respuesta del usuario con el autor de la frase
 function compararRespuesta(respuesta, autor) {
-    return autor.includes(respuesta);
+    // Convertir la respuesta del usuario y los elementos del array "autor" a minúsculas
+    const respuestaMinuscula = respuesta.toLowerCase();
+    const autorMinuscula = autor.map(item => item.toLowerCase());
+
+    // Verificar si la respuesta del usuario se encuentra en el array "autor" en minúsculas
+    return autorMinuscula.includes(respuestaMinuscula);
 }
+
 
 // Función para iniciar el juego
 async function iniciarJuego() {
