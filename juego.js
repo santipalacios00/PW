@@ -44,7 +44,7 @@ function compararRespuesta(respuesta, autor) {
 // Función para iniciar el juego
 function iniciarJuego() {
     // Reiniciar puntaje
-    score = 0;
+    let score = 0;
     document.getElementById("score").textContent = score;
     
     // Mostrar la primera frase
