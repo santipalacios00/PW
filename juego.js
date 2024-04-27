@@ -23,6 +23,11 @@ const frasesCollection = collection(firestore, "Frases");
 
 // Función para mostrar una frase aleatoria al usuario
 function mostrarFrase() {
+    if (frasesCollection.length === 0) {
+        console.error("La colección de frases está vacía");
+        return;
+    }
+
     // Obtener una frase aleatoria de la colección
     const randomIndex = Math.floor(Math.random() * frasesCollection.length);
     const frase = frasesCollection[randomIndex].frase;
