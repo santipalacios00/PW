@@ -57,39 +57,32 @@ function compararRespuesta(respuesta, autor) {
     // Verificar si la respuesta del usuario se encuentra en el array "autor" en minúsculas
     return autorMinuscula.includes(respuestaMinuscula);
 }
+
+
 // Función para iniciar el juego
-function iniciarJuego() {
+async function iniciarJuego() {
     // Reiniciar puntaje
     let score = 0;
     document.getElementById("score").textContent = score;
-
-    // Eliminar event listener anterior si existe
-    const submitGuessButton = document.getElementById("submitGuess");
-    submitGuessButton.removeEventListener("click", clickAdivinar);
-
+    
     // Mostrar la primera frase
-    mostrarFrase().then(autor => {
+    let autor = await mostrarFrase();
 
-        function clickAdivinar() {
-            const respuestaUsuario = document.getElementById("guessInput").value;
-            if (compararRespuesta(respuestaUsuario, autor)) {
-                // Respuesta correcta, incrementar puntaje y mostrar siguiente frase
-                score++;
-                document.getElementById("score").textContent = score;
-                document.getElementById("feedback").textContent = "¡Respuesta correcta!";
-                mostrarFrase().then(nuevoAutor => {
-                    autor = nuevoAutor; // Mostrar siguiente frase
-                });
-            } else {
-                // Respuesta incorrecta, terminar el juego
-                document.getElementById("feedback").textContent = "¡Respuesta incorrecta! Juego terminado. Puntos: " + score;
-                document.getElementById("guessInput").disabled = true; // Deshabilitar entrada de texto
-                submitGuessButton.disabled = true; // Deshabilitar botón de adivinar
-            }
+    // Manejar evento de clic en el botón "Adivinar"
+    document.getElementById("submitGuess").addEventListener("click", async () => {
+        const respuestaUsuario = document.getElementById("guessInput").value;
+        if (compararRespuesta(respuestaUsuario, autor)) {
+            // Respuesta correcta, incrementar puntaje y mostrar siguiente frase
+            score++;
+            document.getElementById("score").textContent = score;
+            document.getElementById("feedback").textContent = "¡Respuesta correcta!";
+            autor = await mostrarFrase(); // Mostrar siguiente frase
+        } else {
+            // Respuesta incorrecta, terminar el juego
+            document.getElementById("feedback").textContent = "¡Respuesta incorrecta! Juego terminado. Puntos: " + score;
+            document.getElementById("guessInput").disabled = true; // Deshabilitar entrada de texto
+            document.getElementById("submitGuess").disabled = true; // Deshabilitar botón de adivinar
         }
-
-        // Manejar evento de clic en el botón "Adivinar"
-        submitGuessButton.addEventListener("click", clickAdivinar);
     });
 }
 
@@ -101,4 +94,3 @@ document.getElementById("startGame").addEventListener("click", () => {
     document.getElementById("submitGuess").disabled = false; // Habilitar botón de adivinar
     iniciarJuego();
 });
-
