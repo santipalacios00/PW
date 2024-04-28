@@ -69,8 +69,6 @@ function iniciarJuego() {
 
     // Mostrar la primera frase
     mostrarFrase().then(autor => {
-        // Manejar evento de clic en el botón "Adivinar"
-        submitGuessButton.addEventListener("click", clickAdivinar);
 
         function clickAdivinar() {
             const respuestaUsuario = document.getElementById("guessInput").value;
@@ -89,6 +87,9 @@ function iniciarJuego() {
                 submitGuessButton.disabled = true; // Deshabilitar botón de adivinar
             }
         }
+
+        // Manejar evento de clic en el botón "Adivinar"
+        submitGuessButton.addEventListener("click", clickAdivinar);
     });
 }
 
