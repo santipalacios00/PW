@@ -65,14 +65,14 @@ function iniciarJuego() {
 
     // Eliminar event listener anterior si existe
     const submitGuessButton = document.getElementById("submitGuess");
-    submitGuessButton.removeEventListener("click", clicAdivinar);
+    submitGuessButton.removeEventListener("click", clickAdivinar);
 
     // Mostrar la primera frase
     mostrarFrase().then(autor => {
         // Manejar evento de clic en el botón "Adivinar"
-        submitGuessButton.addEventListener("click", clicAdivinar);
+        submitGuessButton.addEventListener("click", clickAdivinar);
 
-        function clicAdivinar() {
+        function clickAdivinar() {
             const respuestaUsuario = document.getElementById("guessInput").value;
             if (compararRespuesta(respuestaUsuario, autor)) {
                 // Respuesta correcta, incrementar puntaje y mostrar siguiente frase
