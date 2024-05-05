@@ -141,13 +141,34 @@ async function mostrarRanking() {
 // Manejar evento de clic en el botón "Ranking"
 document.querySelector(".ranking-header").addEventListener("click", mostrarRanking);
 
+// Manejar eventos cuando el DOM está completamente cargado
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtener el modal de ayuda
+    var ayudaModal = document.getElementById("ayuda-modal");
 
-// Manejar evento de clic en el botón de ayuda
-document.querySelector(".ayuda-header").addEventListener("click", () => {
-    document.getElementById("ayuda-modal").style.display = "block";
+    // Obtener el botón que abre el modal de ayuda
+    var ayudaBtn = document.querySelector(".ayuda-header a");
+
+    // Obtener el botón de cierre del modal de ayuda
+    var ayudaCloseBtn = ayudaModal.querySelector(".close");
+
+    // Cuando se hace clic en el botón, mostrar el modal de ayuda
+    ayudaBtn.addEventListener("click", function(event) {
+        ayudaModal.style.display = "block";
+        event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+    });
+
+    // Cuando se hace clic en el botón de cierre, ocultar el modal de ayuda
+    ayudaCloseBtn.addEventListener("click", function(event) {
+        ayudaModal.style.display = "none";
+        event.stopPropagation(); // Evitar la propagación del evento al contenedor principal del modal
+    });
+
+    // Cuando se hace clic fuera del contenido del modal de ayuda, cerrarlo
+    window.addEventListener("click", function(event) {
+        if (event.target == ayudaModal) {
+            ayudaModal.style.display = "none";
+        }
+    });
 });
 
-// Manejar evento de clic en el botón de cierre del modal de ayuda
-document.querySelector("#ayuda-modal .close").addEventListener("click", () => {
-    document.getElementById("ayuda-modal").style.display = "none";
-});
