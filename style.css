@@ -523,17 +523,6 @@ button:hover {
     position: relative; /* Añadir posición relativa para el contenido del modal */
 }
 
-/* Estilos de la imagen dentro del modal */
-
-#ayuda-modal .modal-content img {
-    max-width: 100%; /* Ajustar la imagen al ancho máximo del contenedor */
-    max-height: calc(100vh - 120px); /* Establecer una altura máxima para la imagen, considerando el espacio para el encabezado y el pie de página */
-    width: auto; /* Ajustar automáticamente el ancho de la imagen */
-    height: auto; /* Ajustar automáticamente la altura de la imagen */
-    margin: 0 auto; /* Centrar la imagen horizontalmente dentro del contenedor */
-    display: block; /* Asegurar que la imagen se muestre como un bloque */
-}
-
 
 
 #ayuda-modal h2 {
