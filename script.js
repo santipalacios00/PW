@@ -92,3 +92,33 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// Función para mostrar el modal del ranking con la lista de partidas
+async function mostrarRanking() {
+    try {
+        // Obtener las partidas ordenadas por puntaje de forma descendente
+        const querySnapshot = await getDocs(query(collection(firestore, "Partidas"), orderBy("puntaje", "desc")));
+
+        // Limpiar la lista de jugadores antes de mostrar las nuevas entradas
+        const rankingList = document.querySelector(".ranking-list");
+        rankingList.innerHTML = "";
+
+        // Iterar sobre las partidas y mostrarlas en el modal
+        querySnapshot.forEach((doc) => {
+            const partida = doc.data();
+            const listItem = document.createElement("li");
+            listItem.textContent = `Nombre: ${partida.nombre}, Puntaje: ${partida.puntaje}, Fecha: ${partida.fecha}`;
+            rankingList.appendChild(listItem);
+        });
+
+        // Mostrar el modal del ranking
+        const rankingModal = document.getElementById("ranking-modal");
+        rankingModal.style.display = "block";
+    } catch (error) {
+        console.error("Error al mostrar el ranking:", error);
+    }
+}
+
+// Manejar evento de clic en el botón "Ranking"
+document.querySelector(".ranking-header").addEventListener("click", mostrarRanking);
+
+

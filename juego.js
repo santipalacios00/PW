@@ -57,14 +57,13 @@ function compararRespuesta(respuesta, autor) {
     // Verificar si la respuesta del usuario se encuentra en el array "autor" en minúsculas
     return autorMinuscula.includes(respuestaMinuscula);
 }
-
 // Manejar evento de clic en el botón "Guardar Puntuación"
 document.getElementById("saveScoreBtn").addEventListener("click", async () => {
     const playerName = document.getElementById("playerNameInput").value;
     const score = document.getElementById("score").textContent;
 
-    // Obtener la fecha actual
-    const currentDate = new Date().toISOString();
+    // Obtener la fecha actual como un objeto Timestamp
+    const currentDate = firebase.firestore.Timestamp.fromDate(new Date());
 
     try {
         // Guardar la puntuación en la colección "Partidas"
@@ -81,6 +80,7 @@ document.getElementById("saveScoreBtn").addEventListener("click", async () => {
     // Ocultar el modal
     closeModal();
 });
+
 
 // Función para cerrar el modal
 function closeModal() {
