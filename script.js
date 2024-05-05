@@ -1,4 +1,4 @@
-import { getDocs, query, collection, orderBy } from 'firebase/firestore';
+import { getDocs, query, collection, orderBy } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
 // Tu código aquí
 
@@ -62,8 +62,6 @@ document.addEventListener("DOMContentLoaded", function() {
         link.target = "_blank";
     });
 });
-
-// Botones del encabezado
 
 // Boton ranking
 document.addEventListener("DOMContentLoaded", function() {
