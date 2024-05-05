@@ -339,26 +339,6 @@ button:hover {
     height: fit-content;
 }
 
-
-/* Estilos para la cara de Alf */
-.alf-face {
-    position: absolute; /* Establecer la posición absoluta para que pueda flotar dentro del contenedor */
-    top: 50%; /* Colocar la cara en el centro vertical */
-    left: 50%; /* Colocar la cara en el centro horizontal */
-    transform: translate(-50%, -50%); /* Centrar la cara */
-    animation: floatAlf 5s linear infinite; /* Hacer que la cara flote de forma infinita */
-}
-
-/* Animación para hacer que la cara flote */
-@keyframes floatAlf {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg); /* Posición inicial y sin rotación */
-    }
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg); /* Rotación completa después de 360 grados */
-    }
-}
-
 /* Frase */
 .phrase-container {
     padding: 5px 5px 5px 5px;
