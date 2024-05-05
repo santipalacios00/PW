@@ -510,6 +510,9 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
 }
 
+
+/* Estilos del modal */
+
 #ayuda-modal .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -517,7 +520,19 @@ button:hover {
     border: 1px solid #888;
     width: 80%;
     max-width: 600px;
+    position: relative; /* Añadir posición relativa para el contenido del modal */
 }
+
+/* Estilos de la imagen dentro del modal */
+
+#ayuda-modal .modal-content img {
+    max-width: 100%; /* Ajustar la imagen al ancho máximo del contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+    display: block; /* Asegurar que la imagen se muestre como un bloque */
+    margin: 0 auto; /* Centrar la imagen horizontalmente dentro del contenedor */
+    max-height: 80vh; /* Establecer una altura máxima para la imagen */
+}
+
 
 #ayuda-modal h2 {
     color: #e53c40;
