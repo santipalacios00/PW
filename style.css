@@ -527,11 +527,13 @@ button:hover {
 
 #ayuda-modal .modal-content img {
     max-width: 100%; /* Ajustar la imagen al ancho máximo del contenedor */
-    height: auto; /* Mantener la proporción de la imagen */
-    display: block; /* Asegurar que la imagen se muestre como un bloque */
+    max-height: calc(100vh - 120px); /* Establecer una altura máxima para la imagen, considerando el espacio para el encabezado y el pie de página */
+    width: auto; /* Ajustar automáticamente el ancho de la imagen */
+    height: auto; /* Ajustar automáticamente la altura de la imagen */
     margin: 0 auto; /* Centrar la imagen horizontalmente dentro del contenedor */
-    max-height: 80vh; /* Establecer una altura máxima para la imagen */
+    display: block; /* Asegurar que la imagen se muestre como un bloque */
 }
+
 
 
 #ayuda-modal h2 {
