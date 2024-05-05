@@ -68,7 +68,7 @@ document.getElementById("saveScoreBtn").addEventListener("click", async () => {
 
     try {
         // Guardar la puntuación en la colección "Partidas"
-        await addDoc(collection(db, "Partidas"), {
+        await addDoc(collection(firestore, "Partidas"), {
             nombre: playerName,
             puntaje: score,
             fecha: currentDate
