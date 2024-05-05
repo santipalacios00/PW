@@ -449,14 +449,16 @@ button:hover {
     position: relative; /* Establece la posición relativa para el botón */
 }
 
-.alf-face {
-    position: absolute;
-    top: 50%; /* Inicialmente posicionado en el centro vertical */
-    left: 50%; /* Inicialmente posicionado en el centro horizontal */
-    transform: translate(-50%, -50%);
-    animation: floatAlf 5s linear infinite; /* Animación de desplazamiento */
+ /* Estilos para la cara de Alf */
+ .alf-face {
+    position: absolute; /* Establecer la posición absoluta para que pueda flotar dentro del contenedor */
+    top: 50%; /* Colocar la cara en el centro vertical */
+    left: 50%; /* Colocar la cara en el centro horizontal */
+    transform: translate(-50%, -50%); /* Centrar la cara */
+    animation: floatAlf 5s linear infinite; /* Hacer que la cara flote de forma infinita */
 }
 
+/* Animación para hacer que la cara flote */
 @keyframes floatAlf {
     0% {
         transform: translate(-50%, -50%) rotate(0deg); /* Posición inicial y sin rotación */
