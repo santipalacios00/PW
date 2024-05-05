@@ -123,7 +123,9 @@ async function mostrarRanking() {
         querySnapshot.forEach((doc) => {
             const partida = doc.data();
             const listItem = document.createElement("li");
-            listItem.textContent = `Nombre: ${partida.nombre}, Puntaje: ${partida.puntaje}, Fecha: ${partida.fecha}`;
+            const fecha = new Date(partida.fecha.seconds * 1000); // Convertir el timestamp a milisegundos
+            const formattedDate = `${fecha.getDate()}/${fecha.getMonth() + 1}/${fecha.getFullYear()}`; // Formatear la fecha como DD/MM/AAAA
+            listItem.textContent = `Nombre: ${partida.nombre}, Puntaje: ${partida.puntaje}, Fecha: ${formattedDate}`;
             rankingList.appendChild(listItem);
         });
 
@@ -134,6 +136,7 @@ async function mostrarRanking() {
         console.error("Error al mostrar el ranking:", error);
     }
 }
+
 
 // Manejar evento de clic en el botón "Ranking"
 document.querySelector(".ranking-header").addEventListener("click", mostrarRanking);
