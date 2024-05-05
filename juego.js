@@ -61,7 +61,7 @@ function compararRespuesta(respuesta, autor) {
 // Manejar evento de clic en el botón "Guardar Puntuación"
 document.getElementById("saveScoreBtn").addEventListener("click", async () => {
     const playerName = document.getElementById("playerNameInput").value;
-    const score = document.getElementById("score").textContent;
+    const score = parseInt(document.getElementById("score").textContent); // Convertir a número
 
     // Obtener la fecha actual como un objeto Timestamp
     const currentDate = new Date();

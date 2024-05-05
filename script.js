@@ -140,3 +140,14 @@ async function mostrarRanking() {
 
 // Manejar evento de clic en el botón "Ranking"
 document.querySelector(".ranking-header").addEventListener("click", mostrarRanking);
+
+
+// Manejar evento de clic en el botón de ayuda
+document.querySelector(".ayuda-header").addEventListener("click", () => {
+    document.getElementById("ayuda-modal").style.display = "block";
+});
+
+// Manejar evento de clic en el botón de cierre del modal de ayuda
+document.querySelector("#ayuda-modal .close").addEventListener("click", () => {
+    document.getElementById("ayuda-modal").style.display = "none";
+});
