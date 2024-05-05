@@ -449,6 +449,23 @@ button:hover {
     position: relative; /* Establece la posición relativa para el botón */
 }
 
+.alf-face {
+    position: absolute;
+    top: 50%; /* Inicialmente posicionado en el centro vertical */
+    left: 50%; /* Inicialmente posicionado en el centro horizontal */
+    transform: translate(-50%, -50%);
+    animation: floatAlf 5s linear infinite; /* Animación de desplazamiento */
+}
+
+@keyframes floatAlf {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg); /* Posición inicial y sin rotación */
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg); /* Rotación completa después de 360 grados */
+    }
+}
+
 .bocina-image {
     width: 100%; /* Ancho de la imagen */
     height: 100%; /* Altura de la imagen */
