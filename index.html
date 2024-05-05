@@ -29,14 +29,13 @@
         <div class="menu-container">
             <div class="menu">
                 <ul>
-                    <!-- Botón de inicio -->
-                    <li class="inicio-header"><a href="">Inicio</a></li>
+                    <!-- Botón de inicio <li class="inicio-header"><a href="">Inicio</a></li> -->
                     <!-- Botón de ranking -->
                     <li class="ranking-header"><a href="">Ranking</a></li>
                     <!-- Botón de frase (signo de interrogación) -->
                     <li class="config-header"><a href="">Configuración</a></li>
                     <!-- Botón de frase (signo de interrogación) -->
-                    <li class="random-header"><a href="">?</a></li>
+                    <li class="random-header"><a href="">Clickeame</a></li>
                 </ul>
             </div>
         </div>
@@ -90,6 +89,18 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal para ingresar el nombre del jugador -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>¡Has perdido!</h2>
+        <p>Ingresa tu nombre o apodo para registrar tu puntuación:</p>
+        <input type="text" id="playerNameInput" placeholder="Nombre">
+        <button id="saveScoreBtn">Guardar Puntuación</button>
+        </div>
+    </div>
+  
     
     <footer class="footer">
         <div class="info-container">

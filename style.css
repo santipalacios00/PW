@@ -459,8 +459,6 @@ button:hover {
 }
 
 
-/* Boton de ranking */
-
 /* Estilos del modal */
 .modal {
     display: none; /* Ocultar el modal por defecto */
@@ -496,6 +494,8 @@ button:hover {
     text-decoration: none;
     cursor: pointer;
 }
+
+
 
 /* Estilos de la lista de jugadores
 .ranking-list {
