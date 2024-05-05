@@ -63,8 +63,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-//Boton ranking
+// Botones del encabezado
 
+// Boton ranking
 document.addEventListener("DOMContentLoaded", function() {
     // Obtener el modal
     var modal = document.getElementById("ranking-modal");
@@ -100,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
 async function mostrarRanking() {
     try {
         // Obtener las partidas ordenadas por puntaje de forma descendente
-        const querySnapshot = await getDocs(query(collection(firestore, "Partidas"), orderBy("puntaje", "desc")));
+        const querySnapshot = await getDocs(query(collection(db, "Partidas"), orderBy("puntaje", "desc")));
 
         // Limpiar la lista de jugadores antes de mostrar las nuevas entradas
         const rankingList = document.querySelector(".ranking-list");
@@ -124,5 +125,3 @@ async function mostrarRanking() {
 
 // Manejar evento de clic en el botón "Ranking"
 document.querySelector(".ranking-header").addEventListener("click", mostrarRanking);
-
-
