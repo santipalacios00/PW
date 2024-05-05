@@ -1,3 +1,5 @@
+import { getFirestore, collection, doc, setDoc, getDocs, addDoc} from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+
 const audio = document.getElementById('miAudio');
 const toggleButton = document.getElementById('toggleAudio');
 
