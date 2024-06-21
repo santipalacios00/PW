@@ -213,7 +213,7 @@ button:hover {
     z-index: 1; /* Por encima del contenido */
     left: 0;
     top: 0;
-    width: 70%; /* Ancho completo */
+    width: 100%; /* Ancho completo */
     height: fit-content; /* Alto completo */
     overflow: auto; /* Scroll si es necesario */
     background-color: rgb(0,0,0); /* Color de fondo */
