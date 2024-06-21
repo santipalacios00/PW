@@ -96,20 +96,15 @@ function showModal() {
 
 
 
-// Función para iniciar el juego
 async function iniciarJuego() {
     let score = 0; // Reiniciar puntaje
     document.getElementById("score").textContent = score;
 
-    // Mostrar la primera frase y manejar el evento de adivinanza
-    mostrarFrase().then(autor => {
-        const submitGuessButton = document.getElementById("submitGuess");
-        const guessInput = document.getElementById("guessInput");
+    const submitGuessButton = document.getElementById("submitGuess");
+    const guessInput = document.getElementById("guessInput");
 
-        // Eliminar event listeners anteriores para evitar duplicación
-        submitGuessButton.removeEventListener("click", clicAdivinar);
-        guessInput.removeEventListener("keydown", presionarEnter);
-
+    // Función para manejar la lógica del juego
+    function manejarJuego(autor) {
         // Manejar el evento de clic en el botón de adivinar
         submitGuessButton.addEventListener("click", clicAdivinar);
 
@@ -141,6 +136,11 @@ async function iniciarJuego() {
                 clicAdivinar();
             }
         }
+    }
+
+    // Mostrar la primera frase y ejecutar la lógica del juego
+    mostrarFrase().then(autor => {
+        manejarJuego(autor);
     });
 }
 
