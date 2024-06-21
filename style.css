@@ -209,7 +209,7 @@ button:hover {
 /* Estilos para el modal del ranking */
 .modal {
     display: none; /* Oculto por defecto */
-    position: top; /* Fijo en la pantalla */
+    position: fixed; /* Fijo en la pantalla */
     z-index: 1; /* Por encima del contenido */
     left: 0;
     top: 0;
