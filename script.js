@@ -59,6 +59,9 @@ document.addEventListener("DOMContentLoaded", function() {
         "https://www.youtube.com/watch?v=2JlnDtLw_AE&ab_channel=HacKan",
         "https://www.youtube.com/watch?v=2hBSMInlDGg&ab_channel=JanSchmelter",
         "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley",
+        "https://www.youtube.com/watch?v=VQhU63xKJZk&pp=ygUWYWxmIG1vbWVudG9zIGdyYWNpb3Nvcw%3D%3D",
+        "https://www.youtube.com/watch?v=pTCqk29v8w8&ab_channel=RashProducciones",
+        
     ];
 
     // Obtener todos los elementos <a> dentro de <li> con la clase "random-header"
