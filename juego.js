@@ -98,40 +98,52 @@ function showModal() {
 
 // Función para iniciar el juego
 async function iniciarJuego() {
-    // Reiniciar puntaje
-    let score = 0;
+    let score = 0; // Reiniciar puntaje
     document.getElementById("score").textContent = score;
 
-    // Eliminar todos los event listeners anteriores del botón "Adivinar"
-    const submitGuessButton = document.getElementById("submitGuess");
-    const newSubmitGuessButton = submitGuessButton.cloneNode(true);
-    submitGuessButton.parentNode.replaceChild(newSubmitGuessButton, submitGuessButton);
-
-    // Mostrar la primera frase
+    // Mostrar la primera frase y manejar el evento de adivinanza
     mostrarFrase().then(autor => {
-        // Manejar evento de clic en el botón "Adivinar"
-        newSubmitGuessButton.addEventListener("click", clicAdivinar);
+        const submitGuessButton = document.getElementById("submitGuess");
+        const guessInput = document.getElementById("guessInput");
+
+        // Eliminar event listeners anteriores para evitar duplicación
+        submitGuessButton.removeEventListener("click", clicAdivinar);
+        guessInput.removeEventListener("keydown", presionarEnter);
+
+        // Manejar el evento de clic en el botón de adivinar
+        submitGuessButton.addEventListener("click", clicAdivinar);
+
+        // Manejar el evento de tecla Enter en el campo de texto
+        guessInput.addEventListener("keydown", presionarEnter);
 
         function clicAdivinar() {
-            const respuestaUsuario = document.getElementById("guessInput").value;
+            const respuestaUsuario = guessInput.value;
             if (compararRespuesta(respuestaUsuario, autor)) {
-                // Respuesta correcta, incrementar puntaje y mostrar siguiente frase
+                // Respuesta correcta: incrementar puntaje y mostrar la siguiente frase
                 score++;
                 document.getElementById("score").textContent = score;
                 document.getElementById("feedback").textContent = "¡Respuesta correcta!";
                 mostrarFrase().then(nuevoAutor => {
                     autor = nuevoAutor; // Mostrar siguiente frase
+                    guessInput.value = ""; // Limpiar campo de texto
                 });
             } else {
-                // Respuesta incorrecta, mostrar modal y deshabilitar el botón de adivinar
+                // Respuesta incorrecta: mostrar modal y deshabilitar la adivinanza
                 document.getElementById("feedback").textContent = "¡Respuesta incorrecta! Juego terminado. Puntos: " + score;
-                document.getElementById("guessInput").disabled = true; // Deshabilitar entrada de texto
-                newSubmitGuessButton.disabled = true; // Deshabilitar botón de adivinar
+                guessInput.disabled = true;
+                submitGuessButton.disabled = true;
                 showModal(); // Mostrar modal para ingresar el nombre del jugador
+            }
+        }
+
+        function presionarEnter(event) {
+            if (event.key === "Enter") {
+                clicAdivinar();
             }
         }
     });
 }
+
 
 // Manejar evento de clic en el botón "Comenzar Juego"
 document.getElementById("startGame").addEventListener("click", () => {
