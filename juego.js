@@ -1,4 +1,3 @@
-// Inicializar Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
 import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
@@ -15,7 +14,7 @@ const firebaseConfig = {
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 
-// Obtener la instancia de Firestore
+// Obtén la instancia de Firestore
 const firestore = getFirestore(app);
 
 // Obtener una referencia a la colección "Frases"
@@ -27,7 +26,6 @@ let frasesDificultad3 = [];
 let frasesMostradas = [];
 let dificultadActual = 1;
 let juegoActivo = false;
-let score = 0; // Variable para almacenar el puntaje actual
 
 // Función para cargar frases por dificultad desde Firestore
 async function cargarFrasesPorDificultad() {
@@ -58,7 +56,6 @@ async function cargarFrasesPorDificultad() {
 async function reiniciarJuego() {
     frasesMostradas = [];
     dificultadActual = 1;
-    score = 0; // Reiniciar puntaje
     await cargarFrasesPorDificultad();
 }
 
@@ -157,13 +154,19 @@ async function mostrarFrase() {
 // Función para iniciar el juego
 async function iniciarJuego() {
     juegoActivo = true;
-    score = 0; // Reiniciar puntaje al iniciar el juego
+    // Reiniciar puntaje
+    let score = 0;
     document.getElementById("score").textContent = score;
+
+    // Eliminar todos los event listeners anteriores del botón "Adivinar"
+    const submitGuessButton = document.getElementById("submitGuess");
+    const newSubmitGuessButton = submitGuessButton.cloneNode(true);
+    submitGuessButton.parentNode.replaceChild(newSubmitGuessButton, submitGuessButton);
 
     // Mostrar la primera frase
     mostrarFrase().then(autor => {
         // Manejar evento de clic en el botón "Adivinar"
-        document.getElementById("submitGuess").addEventListener("click", clicAdivinar);
+        newSubmitGuessButton.addEventListener("click", clicAdivinar);
 
         // Manejar evento de tecla Enter en el campo de texto
         document.getElementById("guessInput").addEventListener("keydown", function(event) {
@@ -188,7 +191,7 @@ async function iniciarJuego() {
                 // Respuesta incorrecta, mostrar modal y deshabilitar el botón de adivinar
                 document.getElementById("feedback").textContent = "¡Respuesta incorrecta! Juego terminado. Puntos: " + score;
                 document.getElementById("guessInput").disabled = true; // Deshabilitar entrada de texto
-                document.getElementById("submitGuess").disabled = true; // Deshabilitar botón de adivinar
+                newSubmitGuessButton.disabled = true; // Deshabilitar botón de adivinar
                 showModal(); // Mostrar modal para ingresar el nombre del jugador
                 juegoActivo = false;
             }
