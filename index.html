@@ -77,17 +77,27 @@
         </div>
     </div>
 
-    <!-- Modal del ranking -->
     <div id="ranking-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Ranking de jugadores</h2>
-            <div class="ranking-list">
-                Cargando...
-                <!-- Aquí se mostrará la lista de jugadores -->
-            </div>
+            <h2>Ranking</h2>
+            <table class="ranking-table">
+                <thead>
+                    <tr>
+                        <th>Posición</th>
+                        <th>Jugador</th>
+                        <th>Puntaje</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody class="ranking-list">
+                    Cargando...
+                    <!-- Aquí se insertarán las filas de la tabla -->
+                </tbody>
+            </table>
         </div>
     </div>
+    
 
     <!-- Modal para mostrar las instrucciones del juego -->
     <div id="ayuda-modal" class="modal">

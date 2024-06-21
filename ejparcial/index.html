@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Barra de Navegación Responsiva: Crea una barra de navegación horizontal que se ajuste a diferentes tamaños de pantalla. 
+        Utiliza CSS para hacerla responsive, de modo que se adapte a dispositivos móviles. 
+        Agrega un menú desplegable para dispositivos de pantalla pequeña utilizando CSS y JavaScript.-->
+
+    <header> 
+        <div class="barranavegacion"> 
+            <ul class="menu"> <!-- Envuelve tu menú con una lista -->
+                <li><a href="linkinicio">Inicio</a></li>
+                <li><a href="linkconfig">Configuracion</a></li>
+                <li><a href="linkranking">Ranking</a></li>
+                <li><a href="linkayuda">Ayuda</a></li>
+            </ul>
+        </div>
+    </header>
+            
+    <!-- Consigna 1: 
+    Creación de una Tarjeta de Producto: En este ejercicio, crea una tarjeta de producto con una imagen, título, descripción y precio. 
+    Utiliza HTML para estructurar la tarjeta y CSS para estilizarla. 
+    Agrega estilos para resaltar la tarjeta cuando se pasa el cursor sobre ella.-->
+    <div class = "tarjetas"> 
+        <div class = "producto">
+            <h1 class = "tituloproducto"> Titulo de producto </h1>
+            <img src = "C:\Users\santi\Desktop\PW\image\ALF-Logo.png" class = "foto">
+            <p class = "descripcion"> Aca va la descripcion </p>
+            <p class = "precio"> Aca va el precio </p>
+        </div>
+    </div>
+
+    <form id="contactoForm">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <span class="error" id="errorNombre"></span>
+        </div>
+        <div>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error" id="errorEmail"></span>
+        </div>
+        <div>
+            <label for="asunto">Asunto:</label>
+            <input type="text" id="asunto" name="asunto" required>
+            <span class="error" id="errorAsunto"></span>
+        </div>
+        <div>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+            <span class="error" id="errorMensaje"></span>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+    
+    
+</body>
+
+<script src="script.js" type="module"></script>
+
+</html>

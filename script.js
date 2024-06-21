@@ -112,30 +112,35 @@ document.addEventListener("DOMContentLoaded", function() {
 // Función para mostrar el modal del ranking con la lista de partidas
 async function mostrarRanking() {
     try {
-        // Obtener las partidas ordenadas por puntaje de forma descendente
         const querySnapshot = await getDocs(query(collection(db, "Partidas"), orderBy("puntaje", "desc")));
 
-        // Limpiar la lista de jugadores antes de mostrar las nuevas entradas
         const rankingList = document.querySelector(".ranking-list");
         rankingList.innerHTML = "";
 
-        // Iterar sobre las partidas y mostrarlas en el modal
+        let posicion = 1;
         querySnapshot.forEach((doc) => {
             const partida = doc.data();
-            const listItem = document.createElement("li");
-            const fecha = new Date(partida.fecha.seconds * 1000); // Convertir el timestamp a milisegundos
-            const formattedDate = `${fecha.getDate()}/${fecha.getMonth() + 1}/${fecha.getFullYear()}`; // Formatear la fecha como DD/MM/AAAA
-            listItem.textContent = `Nombre: ${partida.nombre}, Puntaje: ${partida.puntaje}, Fecha: ${formattedDate}`;
-            rankingList.appendChild(listItem);
+            const fecha = new Date(partida.fecha.seconds * 1000);
+            const formattedDate = `${fecha.getDate()}/${fecha.getMonth() + 1}/${fecha.getFullYear()}`;
+
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${posicion}</td>
+                <td>${partida.nombre}</td>
+                <td>${partida.puntaje}</td>
+                <td>${formattedDate}</td>
+            `;
+            rankingList.appendChild(row);
+            posicion++;
         });
 
-        // Mostrar el modal del ranking
         const rankingModal = document.getElementById("ranking-modal");
         rankingModal.style.display = "block";
     } catch (error) {
         console.error("Error al mostrar el ranking:", error);
     }
 }
+
 
 
 // Manejar evento de clic en el botón "Ranking"
