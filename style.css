@@ -213,7 +213,7 @@ button:hover {
     z-index: 1; /* Por encima del contenido */
     left: 0;
     top: 0;
-    padding-top: 20%;
+    padding-top: 5%;
     width: 100%; /* Ancho completo */
     height: 100%; /* Alto completo */
     overflow: hidden; /* No permitir desplazamiento de la página */
