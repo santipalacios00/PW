@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getFirestore, collection, doc, setDoc, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBFKo65veH6H_NfZEPEaVRqPv-DtBwGWxM",
@@ -69,6 +69,7 @@ async function obtenerFraseAleatoria() {
                 fraseAleatoria = obtenerFraseDeArray(frasesDificultad1);
             } else {
                 dificultadActual++;
+                await reiniciarJuego(); // Reiniciar juego al pasar al siguiente nivel
                 return obtenerFraseAleatoria();
             }
             break;
@@ -77,6 +78,7 @@ async function obtenerFraseAleatoria() {
                 fraseAleatoria = obtenerFraseDeArray(frasesDificultad2);
             } else {
                 dificultadActual++;
+                await reiniciarJuego(); // Reiniciar juego al pasar al siguiente nivel
                 return obtenerFraseAleatoria();
             }
             break;
