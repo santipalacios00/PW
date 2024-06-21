@@ -105,11 +105,10 @@ async function iniciarJuego() {
 
     // Función para manejar la lógica del juego
     function manejarJuego(autor) {
-        // Manejar el evento de clic en el botón de adivinar
-        submitGuessButton.addEventListener("click", clicAdivinar);
-
         // Manejar el evento de tecla Enter en el campo de texto
         guessInput.addEventListener("keydown", presionarEnter);
+        // Manejar el evento de clic en el botón de adivinar
+        submitGuessButton.addEventListener("click", clicAdivinar);
 
         function clicAdivinar() {
             const respuestaUsuario = guessInput.value;
@@ -120,7 +119,7 @@ async function iniciarJuego() {
                 document.getElementById("feedback").textContent = "¡Respuesta correcta!";
                 mostrarFrase().then(nuevoAutor => {
                     autor = nuevoAutor; // Mostrar siguiente frase
-                    //guessInput.value = ""; // Limpiar campo de texto
+                    guessInput.value = ""; // Limpiar campo de texto
                 });
             } else {
                 // Respuesta incorrecta: mostrar modal y deshabilitar la adivinanza
