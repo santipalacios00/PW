@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+import { getFirestore, collection, doc, setDoc, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBFKo65veH6H_NfZEPEaVRqPv-DtBwGWxM",
@@ -138,6 +138,9 @@ async function mostrarFrase() {
         const phraseElement = document.querySelector(".phrase");
         phraseElement.textContent = fraseTexto;
 
+        // Limpiar campo de texto para la nueva frase
+        document.getElementById("guessInput").value = "";
+
         // Retornar el autor para verificar la respuesta del usuario
         return autor;
     } catch (error) {
@@ -163,6 +166,14 @@ async function iniciarJuego() {
         // Manejar evento de clic en el botón "Adivinar"
         newSubmitGuessButton.addEventListener("click", clicAdivinar);
 
+        // Manejar evento de tecla Enter en el campo de texto
+        document.getElementById("guessInput").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                clicAdivinar();
+            }
+        });
+
         function clicAdivinar() {
             const respuestaUsuario = document.getElementById("guessInput").value;
             if (compararRespuesta(respuestaUsuario, autor)) {
@@ -172,6 +183,7 @@ async function iniciarJuego() {
                 document.getElementById("feedback").textContent = "¡Respuesta correcta!";
                 mostrarFrase().then(nuevoAutor => {
                     autor = nuevoAutor; // Mostrar siguiente frase
+                    document.getElementById("guessInput").value = ""; // Limpiar campo de texto
                 });
             } else {
                 // Respuesta incorrecta, mostrar modal y deshabilitar el botón de adivinar
@@ -229,3 +241,8 @@ document.getElementById("saveScoreBtn").addEventListener("click", async () => {
     // Ocultar el modal
     closeModal();
 });
+
+// Ejecutar la carga inicial de frases por dificultad al cargar la página
+window.onload = async () => {
+    await cargarFrasesPorDificultad();
+};
