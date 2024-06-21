@@ -246,14 +246,16 @@ button:hover {
 
 /* Estilos para la tabla */
 .ranking-table {
-    width: 90%;
+    width: 100%;
     border-collapse: collapse;
+    table-layout: auto; /* Ajusta el ancho de las columnas al contenido */
 }
 
 .ranking-table th,
 .ranking-table td {
     border: 1px solid #ddd;
     padding: 8px;
+    white-space: nowrap; /* Evita el salto de línea en el contenido de las celdas */
 }
 
 .ranking-table th {
@@ -272,22 +274,6 @@ button:hover {
     background-color: #ddd;
 }
 
-/* Ajuste de anchos de columna */
-.ranking-table th.posicion, .ranking-table td.posicion {
-    width: 10%;
-}
-
-.ranking-table th.jugador, .ranking-table td.jugador {
-    width: 40%;
-}
-
-.ranking-table th.puntaje, .ranking-table td.puntaje {
-    width: 20%;
-}
-
-.ranking-table th.fecha, .ranking-table td.fecha {
-    width: 30%;
-}
 
 
 
