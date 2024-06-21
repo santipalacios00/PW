@@ -120,7 +120,7 @@ async function iniciarJuego() {
                 document.getElementById("feedback").textContent = "¡Respuesta correcta!";
                 mostrarFrase().then(nuevoAutor => {
                     autor = nuevoAutor; // Mostrar siguiente frase
-                    guessInput.value = ""; // Limpiar campo de texto
+                    //guessInput.value = ""; // Limpiar campo de texto
                 });
             } else {
                 // Respuesta incorrecta: mostrar modal y deshabilitar la adivinanza
