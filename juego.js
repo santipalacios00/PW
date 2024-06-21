@@ -103,12 +103,21 @@ async function iniciarJuego() {
     const submitGuessButton = document.getElementById("submitGuess");
     const guessInput = document.getElementById("guessInput");
 
+    // Habilitar elementos de entrada
+    guessInput.disabled = false;
+    submitGuessButton.disabled = false;
+
     // Función para manejar la lógica del juego
     function manejarJuego(autor) {
-        // Manejar el evento de tecla Enter en el campo de texto
-        guessInput.addEventListener("keydown", presionarEnter);
+        // Remover event listeners anteriores
+        submitGuessButton.removeEventListener("click", clicAdivinar);
+        guessInput.removeEventListener("keydown", presionarEnter);
+
         // Manejar el evento de clic en el botón de adivinar
         submitGuessButton.addEventListener("click", clicAdivinar);
+
+        // Manejar el evento de tecla Enter en el campo de texto
+        guessInput.addEventListener("keydown", presionarEnter);
 
         function clicAdivinar() {
             const respuestaUsuario = guessInput.value;
