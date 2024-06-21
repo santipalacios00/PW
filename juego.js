@@ -1,3 +1,4 @@
+// Importar módulos de Firebase (URLs actualizadas)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
 import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
