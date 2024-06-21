@@ -23,7 +23,6 @@ const frasesCollection = collection(firestore, "Frases");
 let frasesDificultad1 = [];
 let frasesDificultad2 = [];
 let frasesDificultad3 = [];
-let frasesMostradas = [];
 let dificultadActual = 1;
 let juegoActivo = false;
 
@@ -54,7 +53,9 @@ async function cargarFrasesPorDificultad() {
 
 // Función para reiniciar el juego y las frases mostradas
 async function reiniciarJuego() {
-    frasesMostradas = [];
+    // Limpiar las frases mostradas del nivel actual
+    limpiarFrasesMostradas();
+
     // Incrementar la dificultad actual si es posible
     if (dificultadActual < 3) {
         dificultadActual++;
@@ -105,8 +106,19 @@ function obtenerFraseAleatoria() {
 
 // Función auxiliar para obtener una frase aleatoria de un array específico
 function obtenerFraseDeArray(array) {
-    const randomIndex = Math.floor(Math.random() * array.length);
-    return array[randomIndex];
+    const frasesDisponibles = array.filter(frase => !frasesMostradas.includes(frase));
+    if (frasesDisponibles.length === 0) {
+        return null; // Si todas las frases han sido mostradas, retornar null
+    }
+    const randomIndex = Math.floor(Math.random() * frasesDisponibles.length);
+    const fraseSeleccionada = frasesDisponibles[randomIndex];
+    frasesMostradas.push(fraseSeleccionada);
+    return fraseSeleccionada;
+}
+
+// Función para limpiar las frases mostradas del nivel actual
+function limpiarFrasesMostradas() {
+    frasesMostradas = [];
 }
 
 // Función para comparar la respuesta del usuario con el autor de la frase
@@ -200,6 +212,7 @@ function iniciarJuego() {
 // Función para terminar el juego
 function terminarJuego() {
     juegoActivo = false;
+    limpiarFrasesMostradas(); // Limpiar las frases mostradas del nivel actual
     dificultadActual = 1; // Reiniciar la dificultad a 1 al finalizar el juego
     document.getElementById("guessInput").disabled = true; // Deshabilitar entrada de texto
     document.getElementById("submitGuess").disabled = true; // Deshabilitar botón de adivinar
