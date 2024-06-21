@@ -279,6 +279,12 @@ button:hover {
     background-color: #ddd;
 }
 
+#ayuda-modal h2 {
+    color: #e53c40;
+    font-size: 24px;
+    font-family: "cooper", sans-serif, serif;
+    margin-bottom: 15px;
+}
 
 
 
@@ -617,6 +623,7 @@ button:hover {
     width: 100%;
     height: 100%;
     overflow: auto;
+    font-family: "cooper", sans-serif, serif;
     background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
 }
 
@@ -638,6 +645,7 @@ button:hover {
 #ayuda-modal h2 {
     color: #e53c40;
     font-size: 24px;
+    font-family: "cooper", sans-serif, serif;
     margin-bottom: 15px;
 }
 
