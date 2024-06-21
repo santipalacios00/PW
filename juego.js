@@ -56,7 +56,6 @@ async function cargarFrasesPorDificultad() {
 async function reiniciarJuego() {
     frasesMostradas = [];
     dificultadActual = 1;
-    await cargarFrasesPorDificultad();
 }
 
 // Función para obtener una frase aleatoria según la dificultad actual
@@ -207,6 +206,7 @@ document.getElementById("startGame").addEventListener("click", () => {
         document.getElementById("guessInput").disabled = false; // Habilitar entrada de texto
         document.getElementById("submitGuess").disabled = false; // Habilitar botón de adivinar
         iniciarJuego();
+        juegoActivo = true;
     }
 });
 
