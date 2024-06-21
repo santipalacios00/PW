@@ -1,9 +1,8 @@
-// Importar módulos de Firebase (URLs actualizadas)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
 import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "tu_api_key",
+    apiKey: "AIzaSyBFKo65veH6H_NfZEPEaVRqPv-DtBwGWxM",
     authDomain: "alfgame-e438f.firebaseapp.com",
     projectId: "alfgame-e438f",
     storageBucket: "alfgame-e438f.appspot.com",
@@ -15,7 +14,7 @@ const firebaseConfig = {
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 
-// Obtener la instancia de Firestore
+// Obtén la instancia de Firestore
 const firestore = getFirestore(app);
 
 // Obtener una referencia a la colección "Frases"
@@ -24,6 +23,7 @@ const frasesCollection = collection(firestore, "Frases");
 let frasesDificultad1 = [];
 let frasesDificultad2 = [];
 let frasesDificultad3 = [];
+let frasesMostradas = [];
 let dificultadActual = 1;
 let juegoActivo = false;
 
@@ -54,22 +54,13 @@ async function cargarFrasesPorDificultad() {
 
 // Función para reiniciar el juego y las frases mostradas
 async function reiniciarJuego() {
-    // Limpiar las frases mostradas del nivel actual
-    limpiarFrasesMostradas();
-
-    // Incrementar la dificultad actual si es posible
-    if (dificultadActual < 3) {
-        dificultadActual++;
-    } else {
-        // Si ya se completaron todas las dificultades, el juego ha terminado
-        console.log("¡Has ganado el juego!");
-        dificultadActual = 1; // Reiniciar la dificultad a 1 para futuros juegos
-    }
+    frasesMostradas = [];
+    dificultadActual = 1;
     await cargarFrasesPorDificultad();
 }
 
 // Función para obtener una frase aleatoria según la dificultad actual
-function obtenerFraseAleatoria() {
+async function obtenerFraseAleatoria() {
     let fraseAleatoria = null;
 
     switch (dificultadActual) {
@@ -77,7 +68,8 @@ function obtenerFraseAleatoria() {
             if (frasesDificultad1.length > 0) {
                 fraseAleatoria = obtenerFraseDeArray(frasesDificultad1);
             } else {
-                reiniciarJuego(); // Reiniciar juego al agotar las frases del nivel
+                dificultadActual++;
+                await reiniciarJuego(); // Reiniciar juego al pasar al siguiente nivel
                 return obtenerFraseAleatoria();
             }
             break;
@@ -85,7 +77,8 @@ function obtenerFraseAleatoria() {
             if (frasesDificultad2.length > 0) {
                 fraseAleatoria = obtenerFraseDeArray(frasesDificultad2);
             } else {
-                reiniciarJuego(); // Reiniciar juego al agotar las frases del nivel
+                dificultadActual++;
+                await reiniciarJuego(); // Reiniciar juego al pasar al siguiente nivel
                 return obtenerFraseAleatoria();
             }
             break;
@@ -107,19 +100,14 @@ function obtenerFraseAleatoria() {
 
 // Función auxiliar para obtener una frase aleatoria de un array específico
 function obtenerFraseDeArray(array) {
-    const frasesDisponibles = array.filter(frase => !frasesMostradas.includes(frase));
-    if (frasesDisponibles.length === 0) {
-        return null; // Si todas las frases han sido mostradas, retornar null
-    }
-    const randomIndex = Math.floor(Math.random() * frasesDisponibles.length);
-    const fraseSeleccionada = frasesDisponibles[randomIndex];
-    frasesMostradas.push(fraseSeleccionada);
-    return fraseSeleccionada;
-}
-
-// Función para limpiar las frases mostradas del nivel actual
-function limpiarFrasesMostradas() {
-    frasesMostradas = [];
+    let frase = null;
+    do {
+        const randomIndex = Math.floor(Math.random() * array.length);
+        frase = array[randomIndex];
+    } while (frasesMostradas.includes(frase));
+    
+    frasesMostradas.push(frase);
+    return frase;
 }
 
 // Función para comparar la respuesta del usuario con el autor de la frase
@@ -132,12 +120,12 @@ function compararRespuesta(respuesta, autor) {
 // Función para mostrar una frase al usuario
 async function mostrarFrase() {
     try {
-        let frase = obtenerFraseAleatoria();
+        let frase = await obtenerFraseAleatoria();
 
         // Si no hay frases disponibles, reiniciar el juego
         if (!frase) {
-            reiniciarJuego();
-            frase = obtenerFraseAleatoria();
+            await reiniciarJuego();
+            frase = await obtenerFraseAleatoria();
         }
 
         if (!frase) {
@@ -164,15 +152,21 @@ async function mostrarFrase() {
 }
 
 // Función para iniciar el juego
-function iniciarJuego() {
+async function iniciarJuego() {
     juegoActivo = true;
-    let score = 0; // Reiniciar puntaje
+    // Reiniciar puntaje
+    let score = 0;
     document.getElementById("score").textContent = score;
+
+    // Eliminar todos los event listeners anteriores del botón "Adivinar"
+    const submitGuessButton = document.getElementById("submitGuess");
+    const newSubmitGuessButton = submitGuessButton.cloneNode(true);
+    submitGuessButton.parentNode.replaceChild(newSubmitGuessButton, submitGuessButton);
 
     // Mostrar la primera frase
     mostrarFrase().then(autor => {
         // Manejar evento de clic en el botón "Adivinar"
-        document.getElementById("submitGuess").addEventListener("click", clicAdivinar);
+        newSubmitGuessButton.addEventListener("click", clicAdivinar);
 
         // Manejar evento de tecla Enter en el campo de texto
         document.getElementById("guessInput").addEventListener("keydown", function(event) {
@@ -190,34 +184,19 @@ function iniciarJuego() {
                 document.getElementById("score").textContent = score;
                 document.getElementById("feedback").textContent = "¡Respuesta correcta!";
                 mostrarFrase().then(nuevoAutor => {
-                    if (nuevoAutor) {
-                        autor = nuevoAutor; // Mostrar siguiente frase
-                        document.getElementById("guessInput").value = ""; // Limpiar campo de texto
-                    } else {
-                        // Si no hay más frases disponibles, terminar el juego
-                        terminarJuego();
-                    }
+                    autor = nuevoAutor; // Mostrar siguiente frase
+                    document.getElementById("guessInput").value = ""; // Limpiar campo de texto
                 });
             } else {
                 // Respuesta incorrecta, mostrar modal y deshabilitar el botón de adivinar
                 document.getElementById("feedback").textContent = "¡Respuesta incorrecta! Juego terminado. Puntos: " + score;
                 document.getElementById("guessInput").disabled = true; // Deshabilitar entrada de texto
-                document.getElementById("submitGuess").disabled = true; // Deshabilitar botón de adivinar
+                newSubmitGuessButton.disabled = true; // Deshabilitar botón de adivinar
                 showModal(); // Mostrar modal para ingresar el nombre del jugador
                 juegoActivo = false;
             }
         }
     });
-}
-
-// Función para terminar el juego
-function terminarJuego() {
-    juegoActivo = false;
-    limpiarFrasesMostradas(); // Limpiar las frases mostradas del nivel actual
-    dificultadActual = 1; // Reiniciar la dificultad a 1 al finalizar el juego
-    document.getElementById("guessInput").disabled = true; // Deshabilitar entrada de texto
-    document.getElementById("submitGuess").disabled = true; // Deshabilitar botón de adivinar
-    showModal(); // Mostrar modal para ingresar el nombre del jugador
 }
 
 // Manejar evento de clic en el botón "Comenzar Juego"
