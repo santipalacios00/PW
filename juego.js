@@ -1,6 +1,5 @@
-// Importar las funciones necesarias de Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getFirestore, collection, doc, setDoc, getDocs, addDoc} from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBFKo65veH6H_NfZEPEaVRqPv-DtBwGWxM",
@@ -11,6 +10,7 @@ const firebaseConfig = {
     appId: "1:493104096636:web:1361d0bdda78a2ff5af0f9",
     measurementId: "G-EHQ8FJ9J2F"
 };
+
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 
@@ -20,26 +20,123 @@ const firestore = getFirestore(app);
 // Obtener una referencia a la colección "Frases"
 const frasesCollection = collection(firestore, "Frases");
 
+let frasesDificultad1 = [];
+let frasesDificultad2 = [];
+let frasesDificultad3 = [];
+let frasesMostradas = [];
+let dificultadActual = 1;
+let juegoActivo = false;
 
-// Función para mostrar una frase aleatoria al usuario
-async function mostrarFrase() {
+// Función para cargar frases por dificultad desde Firestore
+async function cargarFrasesPorDificultad() {
     try {
         const querySnapshot = await getDocs(frasesCollection);
-        if (querySnapshot.empty) {
-            console.error("La colección de frases está vacía");
+        querySnapshot.forEach(doc => {
+            const frase = doc.data();
+            switch (frase.dificultad) {
+                case 1:
+                    frasesDificultad1.push(frase);
+                    break;
+                case 2:
+                    frasesDificultad2.push(frase);
+                    break;
+                case 3:
+                    frasesDificultad3.push(frase);
+                    break;
+                default:
+                    break;
+            }
+        });
+    } catch (error) {
+        console.error("Error al cargar frases por dificultad:", error);
+    }
+}
+
+// Función para reiniciar el juego y las frases mostradas
+async function reiniciarJuego() {
+    frasesMostradas = [];
+    dificultadActual = 1;
+    await cargarFrasesPorDificultad();
+}
+
+// Función para obtener una frase aleatoria según la dificultad actual
+async function obtenerFraseAleatoria() {
+    let fraseAleatoria = null;
+
+    switch (dificultadActual) {
+        case 1:
+            if (frasesDificultad1.length > 0) {
+                fraseAleatoria = obtenerFraseDeArray(frasesDificultad1);
+            } else {
+                dificultadActual++;
+                return obtenerFraseAleatoria();
+            }
+            break;
+        case 2:
+            if (frasesDificultad2.length > 0) {
+                fraseAleatoria = obtenerFraseDeArray(frasesDificultad2);
+            } else {
+                dificultadActual++;
+                return obtenerFraseAleatoria();
+            }
+            break;
+        case 3:
+            if (frasesDificultad3.length > 0) {
+                fraseAleatoria = obtenerFraseDeArray(frasesDificultad3);
+            } else {
+                // Si no hay más frases de dificultad 3, el juego ha terminado
+                console.log("¡Has ganado el juego!");
+                return null;
+            }
+            break;
+        default:
+            break;
+    }
+
+    return fraseAleatoria;
+}
+
+// Función auxiliar para obtener una frase aleatoria de un array específico
+function obtenerFraseDeArray(array) {
+    let frase = null;
+    do {
+        const randomIndex = Math.floor(Math.random() * array.length);
+        frase = array[randomIndex];
+    } while (frasesMostradas.includes(frase));
+    
+    frasesMostradas.push(frase);
+    return frase;
+}
+
+// Función para comparar la respuesta del usuario con el autor de la frase
+function compararRespuesta(respuesta, autor) {
+    const respuestaMinuscula = respuesta.toLowerCase();
+    const autorMinuscula = autor.map(item => item.toLowerCase());
+    return autorMinuscula.includes(respuestaMinuscula);
+}
+
+// Función para mostrar una frase al usuario
+async function mostrarFrase() {
+    try {
+        let frase = await obtenerFraseAleatoria();
+
+        // Si no hay frases disponibles, reiniciar el juego
+        if (!frase) {
+            await reiniciarJuego();
+            frase = await obtenerFraseAleatoria();
+        }
+
+        if (!frase) {
+            console.error("No hay frases disponibles");
             return null;
         }
 
-        // Obtener una frase aleatoria de la colección
-        const randomIndex = Math.floor(Math.random() * querySnapshot.size);
-        const randomDoc = querySnapshot.docs[randomIndex];
-        const fraseData = randomDoc.data();
-        const frase = fraseData.frase;
-        const autor = fraseData.autor;
+        const autor = frase.autor;
+        const fraseTexto = frase.frase;
 
         // Mostrar la frase en la interfaz
         const phraseElement = document.querySelector(".phrase");
-        phraseElement.textContent = frase;
+        phraseElement.textContent = fraseTexto;
 
         // Retornar el autor para verificar la respuesta del usuario
         return autor;
@@ -48,56 +145,10 @@ async function mostrarFrase() {
         return null;
     }
 }
-// Función para comparar la respuesta del usuario con el autor de la frase
-function compararRespuesta(respuesta, autor) {
-    // Convertir la respuesta del usuario y los elementos del array "autor" a minúsculas
-    const respuestaMinuscula = respuesta.toLowerCase();
-    const autorMinuscula = autor.map(item => item.toLowerCase());
-
-    // Verificar si la respuesta del usuario se encuentra en el array "autor" en minúsculas
-    return autorMinuscula.includes(respuestaMinuscula);
-}
-
-// Manejar evento de clic en el botón "Guardar Puntuación"
-document.getElementById("saveScoreBtn").addEventListener("click", async () => {
-    const playerName = document.getElementById("playerNameInput").value;
-    const score = parseInt(document.getElementById("score").textContent); // Convertir a número
-
-    // Obtener la fecha actual como un objeto Timestamp
-    const currentDate = new Date();
-
-    try {
-        // Guardar la puntuación en la colección "Partidas"
-        await addDoc(collection(firestore, "Partidas"), {
-            nombre: playerName,
-            puntaje: score,
-            fecha: currentDate
-        });
-        console.log("Puntuación guardada con éxito");
-    } catch (error) {
-        console.error("Error al guardar la puntuación:", error);
-    }
-
-    // Ocultar el modal
-    closeModal();
-});
-
-
-
-// Función para cerrar el modal
-function closeModal() {
-    document.getElementById("myModal").style.display = "none";
-}
-
-// Función para mostrar el modal
-function showModal() {
-    document.getElementById("myModal").style.display = "block";
-}
-
-
 
 // Función para iniciar el juego
 async function iniciarJuego() {
+    juegoActivo = true;
     // Reiniciar puntaje
     let score = 0;
     document.getElementById("score").textContent = score;
@@ -128,6 +179,7 @@ async function iniciarJuego() {
                 document.getElementById("guessInput").disabled = true; // Deshabilitar entrada de texto
                 newSubmitGuessButton.disabled = true; // Deshabilitar botón de adivinar
                 showModal(); // Mostrar modal para ingresar el nombre del jugador
+                juegoActivo = false;
             }
         }
     });
@@ -135,10 +187,45 @@ async function iniciarJuego() {
 
 // Manejar evento de clic en el botón "Comenzar Juego"
 document.getElementById("startGame").addEventListener("click", () => {
-    document.getElementById("feedback").textContent = ""; // Limpiar mensaje de retroalimentación
-    document.getElementById("guessInput").value = ""; // Limpiar campo de texto
-    document.getElementById("guessInput").disabled = false; // Habilitar entrada de texto
-    document.getElementById("submitGuess").disabled = false; // Habilitar botón de adivinar
-    iniciarJuego();
+    if (!juegoActivo) {
+        document.getElementById("feedback").textContent = ""; // Limpiar mensaje de retroalimentación
+        document.getElementById("guessInput").value = ""; // Limpiar campo de texto
+        document.getElementById("guessInput").disabled = false; // Habilitar entrada de texto
+        document.getElementById("submitGuess").disabled = false; // Habilitar botón de adivinar
+        iniciarJuego();
+    }
 });
 
+// Función para cerrar el modal
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+}
+
+// Función para mostrar el modal
+function showModal() {
+    document.getElementById("myModal").style.display = "block";
+}
+
+// Manejar evento de clic en el botón "Guardar Puntuación"
+document.getElementById("saveScoreBtn").addEventListener("click", async () => {
+    const playerName = document.getElementById("playerNameInput").value;
+    const score = parseInt(document.getElementById("score").textContent); // Convertir a número
+
+    // Obtener la fecha actual como un objeto Timestamp
+    const currentDate = new Date();
+
+    try {
+        // Guardar la puntuación en la colección "Partidas"
+        await addDoc(collection(firestore, "Partidas"), {
+            nombre: playerName,
+            puntaje: score,
+            fecha: currentDate
+        });
+        console.log("Puntuación guardada con éxito");
+    } catch (error) {
+        console.error("Error al guardar la puntuación:", error);
+    }
+
+    // Ocultar el modal
+    closeModal();
+});
