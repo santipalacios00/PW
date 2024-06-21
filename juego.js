@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getFirestore, collection, doc, setDoc, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBFKo65veH6H_NfZEPEaVRqPv-DtBwGWxM",
@@ -65,13 +65,13 @@ async function reiniciarJuego() {
 function actualizarFrasesRestantes() {
     switch (dificultadActual) {
         case 1:
-            frasesRestantes = frasesDificultad1.length - frasesMostradas.length;
+            frasesRestantes = frasesDificultad1.length;
             break;
         case 2:
-            frasesRestantes = frasesDificultad2.length - frasesMostradas.length;
+            frasesRestantes = frasesDificultad2.length;
             break;
         case 3:
-            frasesRestantes = frasesDificultad3.length - frasesMostradas.length;
+            frasesRestantes = frasesDificultad3.length;
             break;
         default:
             frasesRestantes = 0;
