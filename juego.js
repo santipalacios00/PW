@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+import { getFirestore, collection, doc, setDoc, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBFKo65veH6H_NfZEPEaVRqPv-DtBwGWxM",
@@ -25,7 +25,6 @@ let frasesDificultad2 = [];
 let frasesDificultad3 = [];
 let frasesMostradas = [];
 let dificultadActual = 1;
-let frasesRestantes = 0; // Contador de frases restantes para el nivel actual
 let juegoActivo = false;
 
 // Función para cargar frases por dificultad desde Firestore
@@ -48,7 +47,6 @@ async function cargarFrasesPorDificultad() {
                     break;
             }
         });
-        actualizarFrasesRestantes();
     } catch (error) {
         console.error("Error al cargar frases por dificultad:", error);
     }
@@ -61,31 +59,6 @@ async function reiniciarJuego() {
     await cargarFrasesPorDificultad();
 }
 
-// Función para actualizar el contador de frases restantes según la dificultad actual
-function actualizarFrasesRestantes() {
-    switch (dificultadActual) {
-        case 1:
-            frasesRestantes = frasesDificultad1.length;
-            break;
-        case 2:
-            frasesRestantes = frasesDificultad2.length;
-            break;
-        case 3:
-            frasesRestantes = frasesDificultad3.length;
-            break;
-        default:
-            frasesRestantes = 0;
-            break;
-    }
-    actualizarNivelYFrasesRestantes();
-}
-
-// Función para actualizar la visualización del nivel y frases restantes en la interfaz
-function actualizarNivelYFrasesRestantes() {
-    document.getElementById("nivel").textContent = `Nivel ${dificultadActual}`;
-    document.getElementById("frasesRestantes").textContent = `Frases restantes: ${frasesRestantes}`;
-}
-
 // Función para obtener una frase aleatoria según la dificultad actual
 async function obtenerFraseAleatoria() {
     let fraseAleatoria = null;
@@ -96,7 +69,6 @@ async function obtenerFraseAleatoria() {
                 fraseAleatoria = obtenerFraseDeArray(frasesDificultad1);
             } else {
                 dificultadActual++;
-                actualizarFrasesRestantes();
                 return obtenerFraseAleatoria();
             }
             break;
@@ -105,7 +77,6 @@ async function obtenerFraseAleatoria() {
                 fraseAleatoria = obtenerFraseDeArray(frasesDificultad2);
             } else {
                 dificultadActual++;
-                actualizarFrasesRestantes();
                 return obtenerFraseAleatoria();
             }
             break;
@@ -134,7 +105,6 @@ function obtenerFraseDeArray(array) {
     } while (frasesMostradas.includes(frase));
     
     frasesMostradas.push(frase);
-    actualizarFrasesRestantes();
     return frase;
 }
 
@@ -272,8 +242,7 @@ document.getElementById("saveScoreBtn").addEventListener("click", async () => {
     closeModal();
 });
 
-// Cargar frases por dificultad al cargar la página
+// Ejecutar la carga inicial de frases por dificultad al cargar la página
 window.onload = async () => {
     await cargarFrasesPorDificultad();
-    actualizarNivelYFrasesRestantes();
 };
